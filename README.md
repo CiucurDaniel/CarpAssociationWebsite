@@ -9,7 +9,7 @@ Carp Association Website - Made with ASP .NET MVC5
 * View-Model
 
 # TODO: Items that need to be implemented
-- [ ] Update menu to work in Boostrap 4.6
+- [x] Update menu to work in Boostrap 4.6
 - [ ] Add Entity Framework 6 to project
 - [ ] create the DbContext;
 - [ ] Model the entities
