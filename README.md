@@ -5,16 +5,21 @@ Carp Association Website - Made with ASP .NET MVC5
 
 # Design Patterns
 
-* Model View
-* View-Model
+* Model View View-Model
 
 # TODO: Items that need to be implemented
 - [x] Update menu to work in Boostrap 4.6
-- [ ] Add Entity Framework 6 to project
-- [ ] create the DbContext;
+- [x] Add Entity Framework 6 to project
+- [x] create the DbContext;
 - [ ] Model the entities
-- [ ] Create Log in functionality
+- [x] Create Log in functionality
+- [ ] Create a better UI for the login screen
 - [ ] Design the home dashboard
+- [ ] About page
+- [ ] Contact Page
+- [ ] CRUD member operations
+- [ ] Acoount operations for member (create, deposit, withdraw, all thos should generate PDF files)
+- [ ] Loan operations
 
 # Problems and or improvements
 - the current version uses Session as a login/logout mechanism a big improvment would be moving this to ASP .NET Identity
