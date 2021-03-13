@@ -3,6 +3,15 @@
 # CarpAssociationWebsite
 Carp Association Website - Made with ASP .NET MVC5
 
+Carp Associations are similar to banks just that they are dedicated to retired people. They provide their members with possiblity to start a savings account (single account, different than banks where you can have one or many accounts) or to get a loan.
+
+The user of this webiste is the actual employee of the Carp Association.
+The main functionalities provided to employees are:
+  - Add new members to association
+  - Give a loan to a member
+  - Start a savings account for a member
+  - Generate all the documents from the webiste as PDF files
+
 # Design Patterns
 
 * Model View View-Model
