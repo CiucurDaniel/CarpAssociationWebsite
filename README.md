@@ -23,6 +23,7 @@ Carp Association Website - Made with ASP .NET MVC5
 
 # Problems and or improvements
 - the current version uses Session as a login/logout mechanism a big improvment would be moving this to ASP .NET Identity
+- decide if mackking the controllers (some ) async will speed up the website
 # Status of the project 
 
 The project is at the initial phase.
