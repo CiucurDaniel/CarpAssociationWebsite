@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="The user is the CARP employee itself">
+    <Position X="3.938" Y="1.635" Height="0.51" Width="2.356" />
+  </Comment>
+  <Comment CommentText="                        A Carp member has a MoneyAccount and (can) have a Loan which respectively has many rates.">
+    <Position X="1.771" Y="4.125" Height="0.75" Width="7.242" />
+  </Comment>
+  <Class Name="CarpAssociationWebsite.Models.Loan">
+    <Position X="5.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAQAAAAAAAAAACAAAAIAAAAAAAAAEACAAA=</HashCode>
+      <FileName>Models\Loan.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarpAssociationWebsite.Models.LoanRate">
+    <Position X="7.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAEAAAAAAAAAAAAgACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\LoanRate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarpAssociationWebsite.Models.Member">
+    <Position X="2.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAEAAAAAAAAAYAAAAQAAAAAAAAAACAAAABAAAAAk=</HashCode>
+      <FileName>Models\Member.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarpAssociationWebsite.Models.User">
+    <Position X="1.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAACCAAAIAAAAAAAAAAAAAAAAACAAAAAAAAIAg=</HashCode>
+      <FileName>Models\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

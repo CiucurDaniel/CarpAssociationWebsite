@@ -13,6 +13,11 @@ namespace CarpAssociationWebsite
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            // order of the routes matter
+            // put them from the most specific to most general ones
+
+            //routes.MapMvcAttributeRoutes(); new way to define routes
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
