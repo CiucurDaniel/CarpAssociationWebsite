@@ -30,6 +30,10 @@ namespace CarpAssociationWebsite.Models
         public string PhoneNumber { get; set; }
 
         [Required]
+        [Display(Name = "Married")]
+        public bool IsMarried { get; set; }
+
+        [Required]
         public int NetIncome { get; set; }  
 
         [Required]

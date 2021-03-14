@@ -24,6 +24,10 @@ namespace CarpAssociationWebsite.DataAccessLayer
 
         // Add the entities
         public DbSet<User> Users { get; set; }
+        public DbSet<Member> Members { get; set; }
+        public DbSet<MoneySavingsAccount> MoneySavingsAccounts { get; set; }
+        public DbSet<Loan> Loans { get; set; }
+        public DbSet<LoanRate> LoanRates { get; set; }  
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

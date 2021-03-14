@@ -17,6 +17,10 @@ namespace CarpAssociationWebsite.Models
         [Display(Name = "Total savings")]
         public float TotalSavings { get; set; }
 
+        [Required] 
+        [Display(Name = "Interest rate")]
+        public float InterestRate { get; set; }  
+
         [Required]
         [Display(Name = "Date started")]
         public DateTime DateStarted { get; set; }
