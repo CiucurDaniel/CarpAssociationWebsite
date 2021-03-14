@@ -33,6 +33,7 @@ The main functionalities provided to employees are:
 # Problems and or improvements
 - the current version uses Session as a login/logout mechanism a big improvment would be moving this to ASP .NET Identity
 - decide if macking the controllers (some ) async will speed up the website
+- in the future, the controllers will have some very complex lines of code (complex data retrieval from the db and such), in order to keep the controllers thin a service layer could be implemented, then the controllers will only be focused on making the call and handling the result.
 # Status of the project 
 
 The project is at the initial phase.
