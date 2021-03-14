@@ -10,7 +10,7 @@ The main functionalities provided to employees are:
   - Add new members to association
   - Give a loan to a member
   - Start a savings account for a member
-  - Generate all the documents from the webiste as PDF files
+  - Generate all the documents from the website as PDF files
 
 # Design Patterns
 
@@ -27,7 +27,7 @@ The main functionalities provided to employees are:
 - [ ] About page
 - [ ] Contact Page
 - [ ] CRUD member operations
-- [ ] Acoount operations for member (create, deposit, withdraw, all thos should generate PDF files)
+- [ ] Acoount operations for member (create, deposit, withdraw, all those should generate PDF files)
 - [ ] Loan operations
 
 # Problems and or improvements
