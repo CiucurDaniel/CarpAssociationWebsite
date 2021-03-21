@@ -20,7 +20,7 @@ The main functionalities provided to employees are:
 - [x] Update menu to work in Boostrap 4.6
 - [x] Add Entity Framework 6 to project
 - [x] create the DbContext;
-- [ ] Model the entities
+- [x] Model the entities
 - [x] Create Log in functionality
 - [ ] Create a better UI for the login screen
 - [ ] Design the home dashboard
@@ -37,6 +37,7 @@ The main functionalities provided to employees are:
 # Status of the project 
 
 The project is at the initial phase.
+All the needed models have been added. Now the goal is to create the Create EconomyAccount UseCase. Make a home screen dashboard and some minor improvements.
 
 ## Technologies
 
