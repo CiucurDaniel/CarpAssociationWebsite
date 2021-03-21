@@ -6,7 +6,7 @@ using System.Web;
 
 namespace CarpAssociationWebsite.Models
 {
-    public class MoneySavingsAccount
+    public class EconomyAccount
     {
         public int Id { get; set; }
 

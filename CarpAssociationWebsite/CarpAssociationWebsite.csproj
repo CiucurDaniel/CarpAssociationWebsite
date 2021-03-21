@@ -130,10 +130,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\EconomyAccountInterest.cs" />
     <Compile Include="Models\Loan.cs" />
     <Compile Include="Models\LoanRate.cs" />
+    <Compile Include="Models\LoanRateInterest.cs" />
     <Compile Include="Models\Member.cs" />
-    <Compile Include="Models\MoneySavingsAccount.cs" />
+    <Compile Include="Models\EconomyAccount.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -144,6 +146,7 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\CustomCssStyles\loginForm.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />

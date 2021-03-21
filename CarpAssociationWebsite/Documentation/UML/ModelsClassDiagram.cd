@@ -4,26 +4,32 @@
     <Position X="3.938" Y="1.635" Height="0.51" Width="2.356" />
   </Comment>
   <Comment CommentText="                        A Carp member has a MoneyAccount and (can) have a Loan which respectively has many rates.">
-    <Position X="1.771" Y="4.125" Height="0.75" Width="7.242" />
+    <Position X="3.74" Y="3.781" Height="0.75" Width="7.242" />
+  </Comment>
+  <Comment CommentText="Economy Account has is own Interest which is changing every year.&#xD;&#xA;The CARP employee is responsible to add it to the db.">
+    <Position X="1.875" Y="7.562" Height="1.052" Width="4.783" />
+  </Comment>
+  <Comment CommentText="A loan has x rates and each rate has it's own Interest which is changing every month.&#xD;&#xA;The CARP employee is responsible to add it to the db.">
+    <Position X="7.75" Y="7.635" Height="1.042" Width="3.794" />
   </Comment>
   <Class Name="CarpAssociationWebsite.Models.Loan">
-    <Position X="5.5" Y="5.25" Width="1.5" />
+    <Position X="7.75" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAQAAAAAAAAAACAAAAIAAAAAAAAAEACAAA=</HashCode>
       <FileName>Models\Loan.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CarpAssociationWebsite.Models.LoanRate">
-    <Position X="7.75" Y="5.25" Width="1.5" />
+    <Position X="7.75" Y="9" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAEAAAAAAAAAAAAgACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACAAAEAAAAAAAAAAAAgACAAAEAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\LoanRate.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CarpAssociationWebsite.Models.Member">
-    <Position X="2.5" Y="5.25" Width="1.5" />
+    <Position X="1.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAEAAAAAAAAAYAAAAQAAAAAAAAAACAAAABAAAAAk=</HashCode>
+      <HashCode>AAACAEACAAAAAAAYAAAAQAAAAAAAAAACAAAABAAAAAk=</HashCode>
       <FileName>Models\Member.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -32,6 +38,27 @@
     <TypeIdentifier>
       <HashCode>AAAAAEAACCAAAIAAAAAAAAAAAAAAAAACAAAAAAAAIAg=</HashCode>
       <FileName>Models\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarpAssociationWebsite.Models.EconomyAccountInterest">
+    <Position X="4" Y="9" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Models\EconomyAccountInterest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarpAssociationWebsite.Models.LoanRateInterest">
+    <Position X="9.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Models\LoanRateInterest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarpAssociationWebsite.Models.EconomyAccount">
+    <Position X="4.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAGCAAAAAAAAAAAAAAAAAAAAAEIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\EconomyAccount.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

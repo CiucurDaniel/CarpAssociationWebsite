@@ -13,6 +13,7 @@ namespace CarpAssociationWebsite.Models
         [Required]
         public Member Member { get; set; }
 
+        [Required]
         public DateTime StartDate { get; set; } 
 
         [Required]
