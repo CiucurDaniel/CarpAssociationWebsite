@@ -42,7 +42,7 @@ All the needed models have been added. Now the goal is to create the Create Econ
 # Models Overview 
 Bellow you can see the entities that a tipical Carp Organizations uses and with our application has.
 
-![Models Class Diagram](CarpAssociationWebsite/Documentation/Images/modelClassDiagram.JPEG?raw=true "App Models")
+![Models Class Diagram](CarpAssociationWebsite/Documentation/Images/modelClassDiagram.JPG?raw=true "App Models")
 
 ## Technologies
 
