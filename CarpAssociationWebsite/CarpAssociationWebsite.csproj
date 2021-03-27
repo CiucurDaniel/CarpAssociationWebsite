@@ -130,6 +130,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\EconomyAccountHistory.cs" />
     <Compile Include="Models\EconomyAccountInterest.cs" />
     <Compile Include="Models\Loan.cs" />
     <Compile Include="Models\LoanRate.cs" />

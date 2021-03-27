@@ -6,7 +6,7 @@
   <Comment CommentText="                        A Carp member has a MoneyAccount and (can) have a Loan which respectively has many rates.">
     <Position X="3.74" Y="3.781" Height="0.75" Width="7.242" />
   </Comment>
-  <Comment CommentText="Economy Account has is own Interest which is changing every year.&#xD;&#xA;The CARP employee is responsible to add it to the db.">
+  <Comment CommentText="Economy Account has is own Interest which is changing every year.&#xD;&#xA;The CARP employee is responsible to add it to the db.&#xD;&#xA;&#xD;&#xA;Also on economy accounts we expect many depose/withdraw transactions,&#xD;&#xA;so we keep a record of them as they occur.">
     <Position X="1.875" Y="7.562" Height="1.052" Width="4.783" />
   </Comment>
   <Comment CommentText="A loan has x rates and each rate has it's own Interest which is changing every month.&#xD;&#xA;The CARP employee is responsible to add it to the db.">
@@ -41,7 +41,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="CarpAssociationWebsite.Models.EconomyAccountInterest">
-    <Position X="4" Y="9" Width="2" />
+    <Position X="4.5" Y="9.25" Width="2" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAAA=</HashCode>
       <FileName>Models\EconomyAccountInterest.cs</FileName>
@@ -59,6 +59,13 @@
     <TypeIdentifier>
       <HashCode>AAAGCAAAAAAAAAAAAAAAAAAAAAEIAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\EconomyAccount.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarpAssociationWebsite.Models.EconomyAccountHistory">
+    <Position X="2" Y="9.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACIAAAAAAAAAAAAAAAAQCAAAAAAAEBAAAAAAAAAAA=</HashCode>
+      <FileName>Models\EconomyAccountHistory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
