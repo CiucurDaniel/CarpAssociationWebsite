@@ -39,6 +39,11 @@ The main functionalities provided to employees are:
 The project is at the initial phase.
 All the needed models have been added. Now the goal is to create the Create EconomyAccount UseCase. Make a home screen dashboard and some minor improvements.
 
+# Models Overview 
+Bellow you can see the entities that a tipical Carp Organizations uses and with our application has.
+
+![Models Class Diagram](CarpAssociationWebsite/Documentation/Images/modelClassDiagram.JPEG?raw=true "App Models")
+
 ## Technologies
 
 | Dependency | Version*
