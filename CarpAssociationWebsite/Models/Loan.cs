@@ -4,10 +4,34 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using CarpAssociationWebsite.Models;
 
 namespace CarpAssociationWebsite.Models
 {
-    public class Loan
+    public enum NumberOfRates
+    {
+        [Display(Name = "3 months")]
+        ThreeMonths = 3,
+
+        [Display(Name = "6 months")]
+        SixMonths = 6,
+
+        [Display(Name = "12 months")]
+        TwelveMonths = 12,
+
+        [Display(Name = "24 months")]
+        TwentyFourMonths = 24,
+
+        [Display(Name = "36 months")]
+        ThirtySixMonths = 36
+    }
+
+    public enum LoanStatus
+    {
+        Ongoing,
+        Closed
+    }
+    public class Loan   
     {
         [Key, Column(Order = 1)]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -25,9 +49,11 @@ namespace CarpAssociationWebsite.Models
 
         [Required]
         [Display(Name = "Number of rates")]
-        public int NumberOfRates { get; set; }
+        public NumberOfRates NumberOfRates { get; set; }
 
         public IEnumerable<LoanRate> LoanRates { get; set; }
+
+        public LoanStatus Status { get; set; }
 
     }
 }

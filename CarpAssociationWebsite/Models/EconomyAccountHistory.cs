@@ -12,8 +12,8 @@ namespace CarpAssociationWebsite.Models
         [Key, Column(Order = 1)]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public int EconomyAccountId { get; set; }   
-        public int TransactionType { get; set; }
+        public EconomyAccount EconomyAccount { get; set; }   
+        public int TransactionType { get; set; }    
         public int MemberId { get; set; }
         public float Amount { get; set; }
         public DateTime Date { get; set; }

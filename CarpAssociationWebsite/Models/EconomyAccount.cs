@@ -11,10 +11,10 @@ namespace CarpAssociationWebsite.Models
     {
         [Key, Column(Order = 1)]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        [ForeignKey("Member")]
+        public int EconomyAccountId { get; set; }
 
-        [Required] 
-        public Member Member { get; set; }
+        public virtual Member Member { get; set; }
 
         [Required]
         [Display(Name = "Total savings")]

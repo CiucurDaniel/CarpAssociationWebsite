@@ -47,5 +47,9 @@ namespace CarpAssociationWebsite.Models
 
         [Required(ErrorMessage = "Please enter an address (eg: Street A, No. 99)")]
         public string Address { get; set; }
+
+        public virtual EconomyAccount EconomyAccount { get; set; }
+
+
     }
 }
