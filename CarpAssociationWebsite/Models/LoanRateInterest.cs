@@ -23,6 +23,8 @@ namespace CarpAssociationWebsite.Models
         [Key, Column(Order = 1)]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+
+        [Display(Name = "Loan Interest RATE")]
         public float Percentage { get; set; }
         public DateTime Date { get; set; }  
     }

@@ -26,10 +26,10 @@ namespace CarpAssociationWebsite.Models
         public string LastName { get; set; }
 
         [Required]
+        [Display(Name = "Personal identification number (eg: CNP)")]
         public string PersonalIdentificationNumber { get; set; }
 
         [Required(ErrorMessage = "Phone number is required!")]
-        [Range(10, 15)]
         public string PhoneNumber { get; set; }
 
         [Required]
