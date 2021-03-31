@@ -29,6 +29,7 @@ The main functionalities provided to employees are:
 - [ ] CRUD member operations
 - [ ] Acoount operations for member (create, deposit, withdraw, all those should generate PDF files)
 - [ ] Loan operations
+- [ ] Add jQuery Table (search, filter and pages out of the box)
 
 # Problems and or improvements
 - the current version uses Session as a login/logout mechanism a big improvment would be moving this to ASP .NET Identity
