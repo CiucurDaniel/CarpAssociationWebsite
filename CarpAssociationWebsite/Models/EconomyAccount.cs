@@ -9,12 +9,9 @@ namespace CarpAssociationWebsite.Models
 {
     public class EconomyAccount
     {
-        [Key, Column(Order = 1)]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]
         [ForeignKey("Member")]
         public int EconomyAccountId { get; set; }
-
-        public virtual Member Member { get; set; }
 
         [Required]
         [Display(Name = "Total savings")]
@@ -22,7 +19,10 @@ namespace CarpAssociationWebsite.Models
 
         [Required]
         [Display(Name = "Date started")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DateStarted { get; set; }
 
+        public virtual Member Member { get; set; }
     }
 }

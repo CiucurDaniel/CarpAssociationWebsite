@@ -14,11 +14,9 @@ namespace CarpAssociationWebsite.DataAccessLayer
         public CarpAssociationWebsiteContext() : base("CarpAssociationWebsiteDatabase")
         {
             // In case of migration errors or changes to model uncomment the above initializer
-            //Database.SetInitializer(new DropCreateDatabaseAlways<SportAttendanceManagerContext>());
+            //Database.SetInitializer(new DropCreateDatabaseAlways<CarpAssociationWebsiteContext>());
 
-            // TODO: Create a working custom initializer
-            Database.SetInitializer(new DropCreateDatabaseAlways<CarpAssociationWebsiteContext>());
-            //Database.SetInitializer(new SportAttendanceManagerInitializer()); // BUG: Does no work throws: entity error when adding Users in the seed method
+            Database.SetInitializer(new CarpAssociationDBInitializer()); // BUG: Does no work throws: entity error when adding Users in the seed method
         }
 
 
