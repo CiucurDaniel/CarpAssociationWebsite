@@ -128,6 +128,7 @@
     <Compile Include="Controllers\EconomyAccountController.cs" />
     <Compile Include="Controllers\EconomyAccountInterestController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InterestRatesDashboardController.cs" />
     <Compile Include="Controllers\LoanRateInterestController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="DataAccessLayer\CarpAssociationDBInitializer.cs" />
@@ -310,6 +311,7 @@
     <Content Include="Views\LoanRateInterest\Details.cshtml" />
     <Content Include="Views\LoanRateInterest\Edit.cshtml" />
     <Content Include="Views\LoanRateInterest\Index.cshtml" />
+    <Content Include="Views\InterestRatesDashboard\InterestRateDashboardIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

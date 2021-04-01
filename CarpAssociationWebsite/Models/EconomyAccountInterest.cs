@@ -23,7 +23,7 @@ namespace CarpAssociationWebsite.Models
         public int Id { get; set; }
 
         [Display(Name = "Economy Interest RATE")]
-        public float Percentage { get; set; }
+        public double Percentage { get; set; }
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]

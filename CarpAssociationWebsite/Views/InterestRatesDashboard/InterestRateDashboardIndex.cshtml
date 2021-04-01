@@ -1,0 +1,138 @@
+﻿@model CarpAssociationWebsite.ViewModels.InterestRatesViewModel
+@{
+    ViewBag.Title = "InterestRateDashboardIndex";
+}
+
+
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+
+    <!-- (document).ready checks the DOM of the page and when is ready it executes the JS code. -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#tableEconomyAccountInterestTable').DataTable({
+                "scrollX": true,
+                "scrollY": 210,
+                "order": [],
+                "columnDefs": [{
+                    "targets": 'no-sort',
+                    "orderable": true,
+                }]
+            });
+        });
+
+        $(document).ready(function () {
+            $('#tableLoanRateInterestTable').DataTable({
+                "scrollX": true,
+                "scrollY": 210,
+                "order": [],
+                "columnDefs": [{
+                    "targets": 'no-sort',
+                    "orderable": true,
+                }]
+            });
+        });
+    </script>
+
+}
+
+
+<div class="alert alert-primary" role="alert">
+    Dear employee, remember that the Economy Account Interest must be updated every year,
+    and that the Loan rate Interest must be updated every month!
+</div>
+
+<!-- Add new interest rate zone -->
+
+<!-- No longer here, moved next to each tables -->
+
+<!-- Economy Account Interest -->
+
+<div class="container">
+    <h2><b>Economy Account Interests</b></h2>
+
+    <a href="@Url.Action( "Create", "EconomyAccountInterest")" class="btn btn-success btn-lg btn-block" >Add new economy account interest rate</a>
+    <br/>
+
+    <table id="tableEconomyAccountInterestTable" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+        <thead>
+        <tr>
+            <th scope="col">
+                Date
+            </th>
+            <th scope="col">
+                Interest %
+            </th>
+            <th class="no-sort text-center" scope="col">
+                Options
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model.CurrentEconomyAccountInterests)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Percentage)
+                </td>
+                <td class="text-center">
+                    @Html.ActionLink("Edit", "Edit", "EconomyAccountInterest", "", new { id = item.Id }) |
+                    @Html.ActionLink("Edit", "Details", "EconomyAccountInterest", "", new { id = item.Id }) |
+                    @Html.ActionLink("Edit", "Delete", "EconomyAccountInterest", "", new { id = item.Id })
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+<br />
+
+<!-- Loan Rate Interest -->
+
+<br/>
+<div class="container">
+    <h2>Loan rate Interests</h2>
+
+    <a class="btn btn-success btn-lg btn-block" href="@Url.Action("Create", "EconomyAccountInterest")">Add new economy account interest rate</a>
+    <br/>
+
+    <table id="tableLoanRateInterestTable" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+        <thead>
+        <tr>
+            <th scope="col">
+                Date
+            </th>
+            <th scope="col">
+                Interest %
+            </th>
+            <th class="no-sort text-center" scope="col">
+                Options
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model.CurrentLoanRateInterests)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Percentage)
+                </td>
+                <td class="text-center">
+                    @Html.ActionLink("Edit", "Edit", "LoanRateInterest", "", new { id = item.Id }) |
+                    @Html.ActionLink("Edit", "Details", "LoanRateInterest", "", new { id = item.Id }) |
+                    @Html.ActionLink("Edit", "Delete", "LoanRateInterest", "", new { id = item.Id })
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

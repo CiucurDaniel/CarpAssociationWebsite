@@ -27,6 +27,31 @@ namespace CarpAssociationWebsite.DataAccessLayer
             context.Members.AddRange(demoMembers);
 
             context.SaveChanges();
+
+
+            IList<EconomyAccountInterest> economyAccountInterests = new List<EconomyAccountInterest>()
+            {
+                new EconomyAccountInterest() {Date = new DateTime(2018, 12, 20), Percentage = 6.6},
+                new EconomyAccountInterest() {Date = new DateTime(2019, 12, 20), Percentage = 5.5},
+                new EconomyAccountInterest() {Date = new DateTime(2020, 12, 20), Percentage = 5.4},
+                new EconomyAccountInterest() {Date = new DateTime(2021, 12, 20), Percentage = 6.3},
+                new EconomyAccountInterest() {Date = new DateTime(2022, 12, 20), Percentage = 5.0},
+            };
+
+            context.EconomyAccountInterests.AddRange(economyAccountInterests);
+
+
+            IList<LoanRateInterest> loanRateInterests = new List<LoanRateInterest>()
+            {
+                new LoanRateInterest() {Date = new DateTime(2020, 01, 20), Percentage = 7.2},
+                new LoanRateInterest() {Date = new DateTime(2020, 02, 20), Percentage = 2.5},
+                new LoanRateInterest() {Date = new DateTime(2020, 03, 20), Percentage = 3.4},
+                new LoanRateInterest() {Date = new DateTime(2020, 04, 20), Percentage = 4.3},
+                new LoanRateInterest() {Date = new DateTime(2020, 05, 20), Percentage = 5.0},
+            };
+
+            context.LoanRateInterests.AddRange(loanRateInterests);
+
             base.Seed(context);
         }
     }

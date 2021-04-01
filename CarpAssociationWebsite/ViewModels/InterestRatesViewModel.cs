@@ -21,9 +21,5 @@ namespace CarpAssociationWebsite.ViewModels
 
         // new interest rates, in case user wants to add the new values
 
-        public EconomyAccountInterest NewEconomyAccountInterest { get; set; }
-        public bool NewEcAccInterestAdded { get; set; }
-        public LoanRateInterest NewLoanRateInterest { get; set; }
-        public bool NewLoanRateInterestAdded { get; set; }  
     }
 }       
