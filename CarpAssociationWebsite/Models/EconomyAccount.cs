@@ -14,8 +14,8 @@ namespace CarpAssociationWebsite.Models
         public int EconomyAccountId { get; set; }
 
         [Required]
-        [Display(Name = "Total savings")]
-        public float TotalSavings { get; set; }
+        [Display(Name = "Balance")]
+        public float Balance { get; set; } 
 
         [Required]
         [Display(Name = "Date started")]
@@ -24,5 +24,9 @@ namespace CarpAssociationWebsite.Models
         public DateTime DateStarted { get; set; }
 
         public virtual Member Member { get; set; }
+
+        // TODO: Add another prop : bool Closed { get; set;}
+
+        // might also need an enum instead of closed, and have a renew option
     }
 }

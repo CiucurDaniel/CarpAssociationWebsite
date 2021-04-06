@@ -7,6 +7,7 @@ using CarpAssociationWebsite.Models;
 namespace CarpAssociationWebsite.ViewModels
 {
     /// <summary>
+    ///
     /// 
     /// InterestRatesViewModel
     /// ViewModel which contains interest rates for both

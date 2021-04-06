@@ -19,11 +19,13 @@ namespace CarpAssociationWebsite.Models
         public int Id { get; set; }
         public EconomyAccount EconomyAccount { get; set; }   
         public TransactionType TransactionType { get; set; }    
-        public int MemberId { get; set; }
+        public int MemberId { get; set; } // TODO: REMOVE
         public float Amount { get; set; }
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime Date { get; set; }
+
+        // improve with more details regarding events
     }
 }   

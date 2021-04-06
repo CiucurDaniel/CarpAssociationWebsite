@@ -17,6 +17,11 @@ namespace CarpAssociationWebsite.Models
     /// interest rate -> February 2020 -> 5.76%
     /// ...
     ///
+    /// For now all loans use a generic interest rate every month for every rate
+    /// in the future there will be an option to also add a manual value or to
+    /// have one computed.
+    ///
+    /// ----
     /// </summary>
     public class LoanRateInterest
     {

@@ -131,6 +131,7 @@
     <Compile Include="Controllers\InterestRatesDashboardController.cs" />
     <Compile Include="Controllers\LoanRateInterestController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DataAccessLayer\CarpAssociationDBInitializer.cs" />
     <Compile Include="DataAccessLayer\CarpAssociationWebsiteContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -312,6 +313,11 @@
     <Content Include="Views\LoanRateInterest\Edit.cshtml" />
     <Content Include="Views\LoanRateInterest\Index.cshtml" />
     <Content Include="Views\InterestRatesDashboard\InterestRateDashboardIndex.cshtml" />
+    <Content Include="Views\User\Create.cshtml" />
+    <Content Include="Views\User\Delete.cshtml" />
+    <Content Include="Views\User\Details.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

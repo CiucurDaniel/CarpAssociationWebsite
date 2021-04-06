@@ -47,13 +47,17 @@ namespace CarpAssociationWebsite.Models
 
         [Required]
         [Range(500.00, 15000.00, ErrorMessage = "Maximum {0} is between {1} and {2}")]
-        public float Amount { get; set; }
+        public double Amount { get; set; }
+
+        // Remaining/Balance
+        [Display(Name = "Current balance")]
+        public double Balance { get; set; }
 
         [Required]
         [Display(Name = "Number of rates")]
         public NumberOfRates NumberOfRates { get; set; }
 
-        public IEnumerable<LoanRate> LoanRates { get; set; }
+        public IEnumerable<LoanRate> LoanRates { get; set; } //check why it doesn't work
 
         public LoanStatus Status { get; set; }
 

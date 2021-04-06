@@ -16,6 +16,7 @@ namespace CarpAssociationWebsite.Models
         public int Id { get; set; } 
         public double Amount { get; set; }
         public float InterestRate { get; set; }
+        // rata se calculeaza la soldul curent (la balance din Loan)
 
         [Display(Name = "Payment status")]
         public LoanRateStatus PaymentStatus { get; set; }
