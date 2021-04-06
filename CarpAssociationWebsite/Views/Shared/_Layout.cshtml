@@ -13,34 +13,35 @@
     }
 </head>
 <body>
-<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
-    @Html.ActionLink("CARP Association", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                @Html.ActionLink("About", "About", "Home", routeValues: new { Area = "" }, new { @class = "nav-link" })
-            </li>
-            <li class="nav-item">
-                @Html.ActionLink("Contact", "Contact", "Home", routeValues: new { Area = "" }, new { @class = "nav-link" })
-            </li>
-        </ul>
-        @Html.Partial("_LoginPartial")
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+        @Html.ActionLink("CARP Association", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    @Html.ActionLink("About", "About", "Home", routeValues: new { Area = "" }, new { @class = "nav-link" })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("Contact", "Contact", "Home", routeValues: new { Area = "" }, new { @class = "nav-link" })
+                </li>
+            </ul>
+            @Html.Partial("_LoginPartial")
+        </div>
+    </nav>
+
+    <!-- Here this empty div used to be class="container body-content" however this was causing to much whitespace on pages -->
+    <div>
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Carp Association Website Application</p>
+        </footer>
     </div>
-</nav>
 
-<div class="container body-content">
-    @RenderBody()
-    <hr />
-    <footer>
-        <p>&copy; @DateTime.Now.Year - Carp Association Website Application</p>
-    </footer>
-</div>
-
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/bootstrap")
-@RenderSection("scripts", required: false)
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
 </body>
 </html>

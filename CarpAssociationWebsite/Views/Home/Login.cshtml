@@ -5,33 +5,45 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@section AddToHead{
+    <link href="@Url.Content("~/Content/CustomCssStyles/loginForm.css")" rel="stylesheet" type="text/css" />
+}
+
+
+
 <div class="container">
-    <div class="card bg-light">
-        <article class="card-body mx-auto" style="max-width: 400px;">
-            <h2 class="card-title mt-3 text-center">Login</h2>
-            <p class="divider-text"><span></span></p>
-            @using (Html.BeginForm("Login", "Home", FormMethod.Post))
-            {
-                @Html.AntiForgeryToken()
-                <div class="form-group input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+    <div class="row no-gutter">
+        <div class="d-none d-md-flex col-md-8 col-lg-6 bg-image align-self-center">
+            <img src="~/Content/Images/loginpage_banner.jpg" class="img-responsive"/>
+        </div>
+        <div class="col-md-8 col-lg-6">
+            <div class="login d-flex align-items-center py-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-9 col-lg-8 mx-auto">
+                            <h3 class="login-heading mb-4">Welcome back!</h3>
+                            
+                            @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+                            {
+                                @Html.AntiForgeryToken()
+                                <div class="form-label-group">
+                                    @Html.TextBoxFor(m => m.Email, "", new { @class = "form-control", @placeholder = "Email address", id="inputEmail", required="", autofocus="" })
+                                    <label for="inputEmail">Email address</label>
+                                </div>
+
+                                <div class="form-label-group">
+                                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password", id="inputPassword", required=""})
+                                    <label for="inputPassword">Password</label>
+                                </div>
+
+                                <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Sign in</button>
+                            }
+                        </div>
                     </div>
-                    @Html.TextBoxFor(m => m.Email, "", new { @class = "form-control", @placeholder = "Email" })
-                </div> <!-- form-group// -->
-                <div class="form-group input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-                    </div>
-                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
-                </div> <!-- form-group// -->
-                <div class="form-group">
-                    @*<input type="submit" name="submit" class="btn btn-primary" value="Login" />*@
-                    <button type="submit" class="btn btn-primary btn-block"> Login </button>
-                </div> <!-- form-group// -->
-                <p class="text-center">Don't have an account? <a href="/Home/Register">Register</a> </p>
-            }
-        </article>
-    </div> <!-- card.// -->
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<!--container end.//-->
+
+
