@@ -39,12 +39,14 @@ The main functionalities provided to employees are:
 # Status of the project 
 
 The project is at the initial phase.
-All the needed models have been added. Now the goal is to create the Create EconomyAccount UseCase. Make a home screen dashboard and some minor improvements.
+All the needed models have been added. Now the goal is to create the EconomyAccount Use Case and the Loan Use Case. ~Make a home screen dashboard and some minor improvements.
+
+![Login page](CarpAssociationWebsite/Documentation/Images/AppScrenshots/Homepage.JPG?raw=true "Login page")
 
 # Models Overview 
 Bellow you can see the entities that a tipical Carp Organizations uses and with our application has.
 
-![Models Class Diagram](CarpAssociationWebsite/Documentation/Images/modelClassDiagram.JPG?raw=true "App Models")
+![Models Class Diagram](CarpAssociationWebsite/Documentation/Images/modelClassDiagram.JPG?raw=true "App Models)
 
 ## Technologies
 
