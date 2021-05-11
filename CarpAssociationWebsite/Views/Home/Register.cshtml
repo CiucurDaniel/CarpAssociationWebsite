@@ -26,28 +26,36 @@
                             @using (Html.BeginForm("Register", "Home", FormMethod.Post))
                             {
                                 @Html.AntiForgeryToken()
+
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
                                 <div class="form-label-group">
                                     @Html.TextBoxFor(m => m.FirstName, "", new { @class = "form-control", @placeholder = "First Name", id = "inputFirstName", required = "", autofocus = "" })
+                                    @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
                                     <label for="inputFirstName">First Name</label>
                                 </div>
 
                                 <div class="form-label-group">
                                     @Html.TextBoxFor(m => m.LastName, "", new { @class = "form-control", @placeholder = "Last Name", id = "inputLastName", required = "", autofocus = "" })
+                                    @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
                                     <label for="inputLastName">Last Name</label>
                                 </div>
 
                                 <div class="form-label-group">
                                     @Html.TextBoxFor(m => m.Email, "", new { @class = "form-control", @placeholder = "Email address", id = "inputEmail", required = "", autofocus = "" })
+                                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                                     <label for="inputEmail">Email address</label>
                                 </div>
 
                                 <div class="form-label-group">
                                     @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password", id = "inputPassword", required = "" })
+                                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                                     <label for="inputPassword">Password</label>
                                 </div>
 
                                 <div class="form-label-group">
                                     @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @placeholder = "Confirm Password", id = "inputConfirmPassword", required = "" })
+                                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                                     <label for="inputConfirmPassword">Password</label>
                                 </div>
 
