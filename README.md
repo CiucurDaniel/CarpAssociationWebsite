@@ -22,7 +22,7 @@ The main functionalities provided to employees are:
 - [x] create the DbContext;
 - [x] Model the entities
 - [x] Create Log in functionality
-- [ ] Create a better UI for the login screen
+- [x] Create a better UI for the login screen
 - [ ] Design the home dashboard
 - [ ] About page
 - [ ] Contact Page
