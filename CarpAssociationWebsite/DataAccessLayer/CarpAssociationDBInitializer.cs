@@ -22,7 +22,9 @@ namespace CarpAssociationWebsite.DataAccessLayer
             IList<Member> demoMembers = new List<Member>();
 
             demoMembers.Add(new Member(){FirstName = "Andrei", LastName = "Pop", City = "Orastie", NetIncome = 4000, Address = "Str. Oituz", IsMarried = false, PhoneNumber = "0775647657", PersonalIdentificationNumber = "34234234235234", State = "Hunedoara"});
-            demoMembers.Add(new Member() { FirstName = "Denisia", LastName = "Carmen", City = "Timisoara", NetIncome = 1200, Address = "Str. Vasile Parvan", IsMarried = false, PhoneNumber = "07756747657", PersonalIdentificationNumber = "34234237685234", State = "Timisoara" });
+            demoMembers.Add(new Member() { FirstName = "Denisia", LastName = "Carmen", City = "Orastie", NetIncome = 1200, Address = "Str. Vasile Parvan", IsMarried = false, PhoneNumber = "07756747657", PersonalIdentificationNumber = "34234237685234", State = "Hunedoara" });
+            demoMembers.Add(new Member() { FirstName = "Mihai", LastName = "Popescu", City = "Orastie", NetIncome = 2200, Address = "Str. Crisan", IsMarried = true, PhoneNumber = "07756547657", PersonalIdentificationNumber = "34234237685234", State = "Hunedoara" });
+            demoMembers.Add(new Member() { FirstName = "Adrian", LastName = "Constatin", City = "Orastie", NetIncome = 3200, Address = "Str. Horia", IsMarried = true, PhoneNumber = "07756747657", PersonalIdentificationNumber = "34234237685234", State = "Hunedoara" });
 
             context.Members.AddRange(demoMembers);
 

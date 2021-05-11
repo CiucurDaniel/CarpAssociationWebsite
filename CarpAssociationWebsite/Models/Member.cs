@@ -30,6 +30,7 @@ namespace CarpAssociationWebsite.Models
         public string PersonalIdentificationNumber { get; set; }
 
         [Required(ErrorMessage = "Phone number is required!")]
+        [Display(Name = "Phone Number")]
         public string PhoneNumber { get; set; }
 
         [Required]
@@ -37,6 +38,7 @@ namespace CarpAssociationWebsite.Models
         public bool IsMarried { get; set; }
 
         [Required]
+        [Display(Name = "Net Income")]
         public int NetIncome { get; set; }  
 
         [Required]
