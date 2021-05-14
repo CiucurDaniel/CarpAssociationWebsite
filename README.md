@@ -23,13 +23,15 @@ The main functionalities provided to employees are:
 - [x] Model the entities
 - [x] Create Log in functionality
 - [x] Create a better UI for the login screen
-- [ ] Design the home dashboard
+- [x] Design the home dashboard
 - [ ] About page
 - [ ] Contact Page
 - [ ] CRUD member operations
 - [ ] Acoount operations for member (create, deposit, withdraw, all those should generate PDF files)
 - [ ] Loan operations
+- [ ] Add Rotativa library in order to print PDF
 - [ ] Add jQuery Table (search, filter and pages out of the box)
+- [ ] Update jQuery version to have print and better UI
 
 # Problems and or improvements
 - the current version uses Session as a login/logout mechanism a big improvment would be moving this to ASP .NET Identity
