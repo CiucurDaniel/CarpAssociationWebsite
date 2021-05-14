@@ -29,7 +29,7 @@ The main functionalities provided to employees are:
 - [ ] CRUD member operations
 - [ ] Acoount operations for member (create, deposit, withdraw, all those should generate PDF files)
 - [ ] Loan operations
-- [ ] Add Rotativa library in order to print PDF
+- [x] Add Rotativa library in order to print PDF
 - [ ] Add jQuery Table (search, filter and pages out of the box)
 - [ ] Update jQuery version to have print and better UI
 
