@@ -17,8 +17,15 @@
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
+
+
 input,
 select,
 textarea {
-    max-width: 280px;
+    max-width: 600px;
 }
+
+
+/* Daniel Ciucur :  Remove text-area max-width: 280px because it causes problems when styling forms */
+
+/* Daniel Ciucur :  Update text-area max-width: 600px  */
