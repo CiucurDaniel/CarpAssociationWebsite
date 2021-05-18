@@ -26,11 +26,14 @@ namespace CarpAssociationWebsite.Models
         ThirtySixMonths = 36
     }
 
+
     public enum LoanStatus
     {
         Ongoing,
-        Closed
+        Finalized   
     }
+
+
     public class Loan   
     {
         [Key, Column(Order = 1)]
