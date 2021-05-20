@@ -143,7 +143,7 @@
     <Compile Include="Models\EconomyAccountHistory.cs" />
     <Compile Include="Models\EconomyAccountInterest.cs" />
     <Compile Include="Models\Loan.cs" />
-    <Compile Include="Models\LoanRate.cs" />
+    <Compile Include="Models\Rate.cs" />
     <Compile Include="Models\LoanRateInterest.cs" />
     <Compile Include="Models\Member.cs" />
     <Compile Include="Models\EconomyAccount.cs" />

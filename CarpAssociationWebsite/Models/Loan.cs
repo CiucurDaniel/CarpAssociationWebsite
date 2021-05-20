@@ -56,13 +56,19 @@ namespace CarpAssociationWebsite.Models
         [Display(Name = "Current balance")]
         public double Balance { get; set; }
 
+        [Display(Name = "Interest Rate")]
+        public float InterestRate { get; set; }
+        // rata se calculeaza la soldul curent (la balance din Loan)
+
         [Required]
         [Display(Name = "Number of rates")]
         public NumberOfRates NumberOfRates { get; set; }
 
-        public IEnumerable<LoanRate> LoanRates { get; set; } //check why it doesn't work
-
         public LoanStatus Status { get; set; }
+
+
+        //add one to many Sport that the teacher has
+        public List<Rate> LoanRates { get; set; }
 
     }
 }

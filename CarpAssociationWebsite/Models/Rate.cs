@@ -7,31 +7,31 @@ using System.Web;
 
 namespace CarpAssociationWebsite.Models
 {
-    public enum LoanRateStatus
+    public enum RateStatus
     {
         Paid,
         WaitingPayment
     }
-    public class LoanRate
+    public class Rate
     {
         [Key, Column(Order = 1)]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; } 
+        public int IdRate { get; set; } 
 
         public double Amount { get; set; }
 
-        [Display(Name = "Interest Rate")]
-        public float InterestRate { get; set; }
-        // rata se calculeaza la soldul curent (la balance din Loan)
-
         [Display(Name = "Payment status")]
-        public LoanRateStatus PaymentStatus { get; set; }
+        public RateStatus PaymentStatus { get; set; }
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DateDue { get; set; }
 
+        public string Status { get; set; }
 
-        public string Status { get; set; }  
+
+        // add the Loan who this rates belong to
+        public int IdLoan { get; set; }
+        public virtual Loan Loan { get; set; }
     }
 }   

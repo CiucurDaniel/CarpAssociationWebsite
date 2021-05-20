@@ -27,7 +27,7 @@ namespace CarpAssociationWebsite.DataAccessLayer
         public DbSet<EconomyAccountInterest> EconomyAccountInterests { get; set; }
         public DbSet<EconomyAccountHistory> EconomyAccountHistories { get; set; }
         public DbSet<Loan> Loans { get; set; }  
-        public DbSet<LoanRate> LoanRates { get; set; }
+        public DbSet<Rate> LoanRates { get; set; }
         public DbSet<LoanRateInterest> LoanRateInterests { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
