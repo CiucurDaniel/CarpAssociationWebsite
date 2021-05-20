@@ -38,7 +38,7 @@ namespace CarpAssociationWebsite.Models
     {
         [Key, Column(Order = 1)]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int IdLoan { get; set; }
 
         [Required]
         public Member Member { get; set; }
@@ -67,8 +67,8 @@ namespace CarpAssociationWebsite.Models
         public LoanStatus Status { get; set; }
 
 
-        //add one to many Sport that the teacher has
-        public List<Rate> LoanRates { get; set; }
+        //add one to many Rate that the loan has
+        public List<Rate> Rates { get; set; }
 
     }
 }

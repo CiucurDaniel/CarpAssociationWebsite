@@ -32,6 +32,7 @@ namespace CarpAssociationWebsite.Models
 
         // add the Loan who this rates belong to
         public int IdLoan { get; set; }
+
         public virtual Loan Loan { get; set; }
     }
 }   
