@@ -41,6 +41,14 @@ namespace CarpAssociationWebsite.Controllers
         public ActionResult Create()
         {
             ViewBag.IdLoan = new SelectList(db.Members, "Id", "NameAndPID");
+
+            // Get the latest InterestRate
+            var latestInterestRate = db.LoanRateInterests.OrderByDescending(p => p.Date)
+                                        .FirstOrDefault();
+
+
+            ViewBag.InterestRateLatest = latestInterestRate.Percentage;
+
             return View();
         }
 
@@ -59,9 +67,18 @@ namespace CarpAssociationWebsite.Controllers
 
                 // Here make a case for treating the error case when a user gives a loan to a member that already has a loan
                 db.SaveChanges();
+
+
+                // Get the latest InterestRate
+                var latestInterestRate = db.LoanRateInterests.OrderByDescending(p => p.Date)
+                                            .FirstOrDefault();
+
+                ViewBag.InterestRateLatest = latestInterestRate.Percentage;
+
                 return RedirectToAction("Index");
             }
 
+            
             ViewBag.IdLoan = new SelectList(db.Members, "Id", "NameAndPID", loan.IdLoan);
             return View(loan);
         }
