@@ -132,6 +132,7 @@
     <Compile Include="Controllers\EconomyAccountInterestController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InterestRatesDashboardController.cs" />
+    <Compile Include="Controllers\LoanController.cs" />
     <Compile Include="Controllers\LoanRateInterestController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -326,6 +327,11 @@
     <Content Include="Views\User\Details.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\Loan\Create.cshtml" />
+    <Content Include="Views\Loan\Delete.cshtml" />
+    <Content Include="Views\Loan\Details.cshtml" />
+    <Content Include="Views\Loan\Edit.cshtml" />
+    <Content Include="Views\Loan\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

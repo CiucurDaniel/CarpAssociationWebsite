@@ -10,19 +10,19 @@ namespace CarpAssociationWebsite.Models
 {
     public enum NumberOfRates
     {
-        [Display(Name = "3 months")]
+        [Display(Name = "3 rates")]
         ThreeMonths = 3,
 
-        [Display(Name = "6 months")]
+        [Display(Name = "6 rates")]
         SixMonths = 6,
 
-        [Display(Name = "12 months")]
+        [Display(Name = "12 rates")]
         TwelveMonths = 12,
 
-        [Display(Name = "24 months")]
+        [Display(Name = "24 rates")]
         TwentyFourMonths = 24,
 
-        [Display(Name = "36 months")]
+        [Display(Name = "36 rates")]
         ThirtySixMonths = 36
     }
 
@@ -36,12 +36,9 @@ namespace CarpAssociationWebsite.Models
 
     public class Loan   
     {
-        [Key, Column(Order = 1)]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]
+        [ForeignKey("Member")]
         public int IdLoan { get; set; }
-
-        [Required]
-        public Member Member { get; set; }
 
         [Required]
         [DataType(DataType.Date)]
@@ -66,6 +63,13 @@ namespace CarpAssociationWebsite.Models
 
         public LoanStatus Status { get; set; }
 
+
+        /// <summary>
+        /// Relationship configrations bellow
+        /// </summary>
+
+        // add this for one to one relationship between member and loan
+        public virtual Member Member { get; set; }
 
         //add one to many Rate that the loan has
         public List<Rate> Rates { get; set; }

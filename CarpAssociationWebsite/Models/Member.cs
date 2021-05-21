@@ -52,6 +52,19 @@ namespace CarpAssociationWebsite.Models
 
         public virtual EconomyAccount EconomyAccount { get; set; }
 
+        public virtual Loan Loan { get; set; }
+
+
+        // Used for some SelectList like in LoanController / Create in order
+        // to make a difference between people who have the same name
+        [NotMapped]
+        public string NameAndPID    
+        {
+            get
+            {
+                return FirstName + " " + LastName + ", " + "CNP: " + PersonalIdentificationNumber;
+            }
+        }
 
     }
 }

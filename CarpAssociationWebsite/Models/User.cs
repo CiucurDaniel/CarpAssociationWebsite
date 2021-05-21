@@ -40,9 +40,6 @@ namespace CarpAssociationWebsite.Models
         public string ConfirmPassword { get; set; }
 
 
-        //add one to many Sport that the teacher has
-        //public List<Sport> Sports { get; set; }
-
 
         public string FullName()
         {
