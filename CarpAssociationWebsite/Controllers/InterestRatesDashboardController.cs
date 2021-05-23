@@ -16,8 +16,13 @@ namespace CarpAssociationWebsite.Controllers
         // GET: InterestRatesDashboard
         public ActionResult InterestRateDashboardIndex()
         {
+            // get the lists with the interest rates for loan and economy rates 
+
             List<LoanRateInterest> loanRateInterests =  db.LoanRateInterests.ToList();
             List<EconomyAccountInterest> economyAccountInterests = db.EconomyAccountInterests.ToList();
+
+            // add them to the ViewModel
+
             InterestRatesViewModel interestRatesViewModel = new InterestRatesViewModel()
             {
                 CurrentEconomyAccountInterests = economyAccountInterests,
