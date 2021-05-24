@@ -18,7 +18,11 @@ namespace CarpAssociationWebsite.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdRate { get; set; } 
 
+        // Effective value of a rate 
         public decimal Amount { get; set; }
+
+        // How much Interest is needed to be paid for the current rate
+        public decimal AmountForInterest { get; set; }
 
         [Display(Name = "Payment status")]
         public RateStatus PaymentStatus { get; set; }
@@ -26,8 +30,6 @@ namespace CarpAssociationWebsite.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DateDue { get; set; }
-
-        public string Status { get; set; }
 
 
         // add the Loan who this rates belong to
