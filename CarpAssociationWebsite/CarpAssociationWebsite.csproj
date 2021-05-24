@@ -150,6 +150,7 @@
     <Compile Include="Models\EconomyAccount.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\ActiveLoansAndEconomyAccountsViewModel.cs" />
     <Compile Include="ViewModels\InterestRatesViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
