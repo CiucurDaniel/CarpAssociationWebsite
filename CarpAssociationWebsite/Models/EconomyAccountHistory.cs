@@ -20,7 +20,7 @@ namespace CarpAssociationWebsite.Models
         public EconomyAccount EconomyAccount { get; set; }   
         public TransactionType TransactionType { get; set; }    
         public int MemberId { get; set; } // TODO: REMOVE
-        public float Amount { get; set; }
+        public decimal Amount { get; set; }
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]

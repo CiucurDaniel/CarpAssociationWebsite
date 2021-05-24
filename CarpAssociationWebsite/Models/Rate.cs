@@ -18,7 +18,7 @@ namespace CarpAssociationWebsite.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdRate { get; set; } 
 
-        public double Amount { get; set; }
+        public decimal Amount { get; set; }
 
         [Display(Name = "Payment status")]
         public RateStatus PaymentStatus { get; set; }

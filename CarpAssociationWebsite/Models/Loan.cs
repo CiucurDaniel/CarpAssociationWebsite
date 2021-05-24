@@ -47,14 +47,14 @@ namespace CarpAssociationWebsite.Models
 
         [Required]
         [Range(500.00, 15000.00, ErrorMessage = "Maximum {0} is between {1} and {2}")]
-        public double Amount { get; set; }
+        public decimal Amount { get; set; }
 
         // Remaining/Balance
         [Display(Name = "Current balance")]
-        public double Balance { get; set; }
+        public decimal Balance { get; set; }
 
         [Display(Name = "Interest Rate")]
-        public float InterestRate { get; set; }
+        public decimal InterestRate { get; set; }
         // rata se calculeaza la soldul curent (la balance din Loan)
 
         [Required]

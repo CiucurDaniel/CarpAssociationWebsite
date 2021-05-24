@@ -33,11 +33,11 @@ namespace CarpAssociationWebsite.DataAccessLayer
 
             IList<EconomyAccountInterest> economyAccountInterests = new List<EconomyAccountInterest>()
             {
-                new EconomyAccountInterest() {Date = new DateTime(2018, 12, 20), Percentage = 6.6},
-                new EconomyAccountInterest() {Date = new DateTime(2019, 12, 20), Percentage = 5.5},
-                new EconomyAccountInterest() {Date = new DateTime(2020, 12, 20), Percentage = 5.4},
-                new EconomyAccountInterest() {Date = new DateTime(2021, 12, 20), Percentage = 6.3},
-                new EconomyAccountInterest() {Date = new DateTime(2022, 12, 20), Percentage = 5.0},
+                new EconomyAccountInterest() {Date = new DateTime(2018, 12, 20), Percentage = 6.6M},
+                new EconomyAccountInterest() {Date = new DateTime(2019, 12, 20), Percentage = 5.5M},
+                new EconomyAccountInterest() {Date = new DateTime(2020, 12, 20), Percentage = 5.4M},
+                new EconomyAccountInterest() {Date = new DateTime(2021, 12, 20), Percentage = 6.3M},
+                new EconomyAccountInterest() {Date = new DateTime(2022, 12, 20), Percentage = 5.0M},
             };
 
             context.EconomyAccountInterests.AddRange(economyAccountInterests);
@@ -45,11 +45,11 @@ namespace CarpAssociationWebsite.DataAccessLayer
 
             IList<LoanRateInterest> loanRateInterests = new List<LoanRateInterest>()
             {
-                new LoanRateInterest() {Date = new DateTime(2020, 01, 20), Percentage = 7.2},
-                new LoanRateInterest() {Date = new DateTime(2020, 02, 20), Percentage = 2.5},
-                new LoanRateInterest() {Date = new DateTime(2020, 03, 20), Percentage = 3.4},
-                new LoanRateInterest() {Date = new DateTime(2020, 04, 20), Percentage = 4.3},
-                new LoanRateInterest() {Date = new DateTime(2020, 05, 20), Percentage = 5.0},
+                new LoanRateInterest() {Date = new DateTime(2020, 01, 20), Percentage = 7.2M},
+                new LoanRateInterest() {Date = new DateTime(2020, 02, 20), Percentage = 2.5M},
+                new LoanRateInterest() {Date = new DateTime(2020, 03, 20), Percentage = 3.4M},
+                new LoanRateInterest() {Date = new DateTime(2020, 04, 20), Percentage = 4.3M},
+                new LoanRateInterest() {Date = new DateTime(2020, 05, 20), Percentage = 5.0M},
             };
 
             context.LoanRateInterests.AddRange(loanRateInterests);

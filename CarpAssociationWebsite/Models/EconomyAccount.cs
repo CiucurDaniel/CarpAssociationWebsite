@@ -15,7 +15,7 @@ namespace CarpAssociationWebsite.Models
 
         [Required]
         [Display(Name = "Balance")]
-        public float Balance { get; set; } 
+        public decimal Balance { get; set; } 
 
         [Required]
         [Display(Name = "Date started")]
