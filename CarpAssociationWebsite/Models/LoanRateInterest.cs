@@ -16,10 +16,11 @@ namespace CarpAssociationWebsite.Models
     /// interest rate -> January 2020 -> 4.00%
     /// interest rate -> February 2020 -> 5.76%
     /// ...
-    ///
-    /// For now all loans use a generic interest rate every month for every rate
-    /// in the future there will be an option to also add a manual value or to
-    /// have one computed.
+    /// 
+    /// If this months rate is 2% and you start a loan with 10 rates
+    /// then all those 10 rates are going to have an interest rate of 2%
+    /// this is how loans work.
+    /// 
     ///
     /// ----
     /// </summary>
