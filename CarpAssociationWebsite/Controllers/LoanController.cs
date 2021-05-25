@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using CarpAssociationWebsite.DataAccessLayer;
 using CarpAssociationWebsite.Models;
+using Rotativa;
 
 namespace CarpAssociationWebsite.Controllers
 {
@@ -72,6 +73,8 @@ namespace CarpAssociationWebsite.Controllers
                 var latestInterestRate = db.LoanRateInterests.OrderByDescending(p => p.Date)
                                             .FirstOrDefault();
 
+                loan.InterestRate = latestInterestRate.Percentage;
+
                 ViewBag.InterestRateLatest = latestInterestRate.Percentage;
 
                 // First add the loan without the rates in order to obtain FK
@@ -85,10 +88,10 @@ namespace CarpAssociationWebsite.Controllers
 
                 var rates = CalculateRates(loan.Amount, loan.InterestRate, noOfRates, loan.StartDate);
 
-                var result = db.Loans.SingleOrDefault(b => b.IdLoan == loan.IdLoan);
-                if (result != null)
+                var newlyCreatedLoan = db.Loans.SingleOrDefault(b => b.IdLoan == loan.IdLoan);
+                if (newlyCreatedLoan != null)
                 {
-                    result.Rates = rates;
+                    newlyCreatedLoan.Rates = rates;
                     db.SaveChanges();
                 }
 
@@ -98,10 +101,12 @@ namespace CarpAssociationWebsite.Controllers
                 // Here make a case for treating the error case when a user gives a loan to a member that already has a loan
                 db.SaveChanges();
 
-                return RedirectToAction("Index");
+                // return RedirectToAction("Index");
+
+                return RedirectToAction("LoanSummary", new { idOfLoan = newlyCreatedLoan.IdLoan});
             }
 
-            
+
             ViewBag.IdLoan = new SelectList(db.Members, "Id", "NameAndPID", loan.IdLoan);
             return View(loan);
         }
@@ -222,12 +227,22 @@ namespace CarpAssociationWebsite.Controllers
                     DateDue= currentRateDateDue
                 };
 
+                // Update lastUsedDate to reflect the new last added month on last for loop rate
+                lastUsedDate = currentRateDateDue;
+
                 rates.Add(rateToPay);
             }
             return rates;
         }
-        
 
+        /// <summary>
+        /// ConvertEnumRatesNumber
+        /// 
+        /// Helper Function used to transform the rates from enum to an actual integer so we can perform math operations.
+        /// 
+        /// </summary>
+        /// <param name="numberOfRates">The number of rates as an enum.</param>
+        /// <returns></returns>
         public int ConvertEnumRatesNumber(NumberOfRates numberOfRates)
         {
             int noOfRates = 1;
@@ -258,5 +273,50 @@ namespace CarpAssociationWebsite.Controllers
 
             return noOfRates;
         }
+
+
+        /// <summary>
+        /// LoanSummary
+        /// 
+        /// The following ActionResult is called after a Loan was created in order to show the summary of the loan
+        /// this ActionResult is also used by the Rotativa library to be transformed in a PDF so the requesting member can sign 
+        /// that he confirms the loan.
+        /// 
+        /// </summary>
+        /// <returns>the view with the loan summary the rates and all</returns>
+        public ActionResult LoanSummary(int idOfLoan)
+        {
+            // search the loan
+
+            // because of default lazy-loading one to many of Loan to Many Rates
+            // won't include the rates, so explicitely tell EntityFramework to load everything.
+
+            var loan = db.Loans.Include(r => r.Rates)
+                .SingleOrDefault(b => b.IdLoan == idOfLoan);
+
+
+
+                // I have the loan now give it to the View and also pass the carp employee name with a ViewBag so we do not need a ViewModel
+                
+
+            return View(loan);
+        }
+
+        /// <summary>  
+        /// PrintLoanSummaryPDF
+        /// 
+        /// The following ActionResult takes the LoanSummaryPDF action and transforms it's output from HTML to PDF;
+        /// 
+        /// It always the requesting member and carp employee to have the document printed on paper after a loan request 
+        /// from the this application.
+        /// 
+        /// </summary>  
+        /// <returns>the view with the loan summary the rates and all CONVERTED TO PDF </returns>  
+        public ActionResult PrintLoanSummaryAsPDF(int idOfLoan)
+        {
+            var report = new Rotativa.ActionAsPdf("LoanSummary", new { idOfLoan });
+            return report;
+        }
+            
     }
 }

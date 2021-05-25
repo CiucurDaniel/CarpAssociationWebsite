@@ -1,0 +1,125 @@
+﻿@model CarpAssociationWebsite.Models.Loan
+@{
+    ViewBag.Title = "LoanSummary";
+}
+
+<h2>LoanSummary</h2>
+
+<div>
+    <h4>Loan Data</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Member.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Member.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Amount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Amount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Balance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Balance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InterestRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InterestRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberOfRates)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumberOfRates)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+    </dl>
+</div>
+
+<br />
+<br />
+<br />
+
+<div>
+    <h4>Loan Rates</h4>
+
+    @{
+        
+            <hr />
+            <h2></h2>
+
+            <table class="table table-striped table-bordered table-sm " cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            Amount
+                        </th>
+                        <th scope="col">
+                            Amount for interest
+                        </th>
+                        <th scope="col">
+                            Date due
+                        </th>
+                        <th scope="col">
+                            Payment Status
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var rate in Model.Rates)
+                    {
+
+                            <tr>
+
+                                <td>@rate.Amount</td>
+
+
+                                <td>@rate.AmountForInterest</td>
+
+
+                                <td>@rate.DateDue</td>
+
+
+                                <td>@rate.PaymentStatus</td>
+
+
+                            </tr>
+                        
+                    }
+                </tbody>
+            </table>
+        
+    }
+</div>
