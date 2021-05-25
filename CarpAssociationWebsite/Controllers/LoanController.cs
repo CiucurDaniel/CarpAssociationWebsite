@@ -57,13 +57,16 @@ namespace CarpAssociationWebsite.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdLoan,StartDate,Amount,Balance,InterestRate,NumberOfRates,Status")] Loan loan)
+        public ActionResult Create([Bind(Include = "IdLoan,StartDate,Amount,InterestRate,NumberOfRates")] Loan loan)
         {
             if (ModelState.IsValid)
             {
-                // loan.Rates(new List<Rate> rates);
 
-                // loan.Balance = loan.Amount; // at first balance = amount
+                // Add balance and status here do not make the user input them because first time their value is predefined
+
+                loan.Balance = loan.Amount; // at first balance = amount
+
+                loan.Status = LoanStatus.Ongoing;
 
                 // Get the latest InterestRate
                 var latestInterestRate = db.LoanRateInterests.OrderByDescending(p => p.Date)
@@ -199,7 +202,7 @@ namespace CarpAssociationWebsite.Controllers
 
             for(int index = 1; index <= numberOfRates; index++)
             {
-
+                // TODO: Add the corect formula here
                 decimal interestToPayForCurrentRate = balance * (interest / 100);
 
                 // No longer needed, amount and interest_amount are being kept separately
