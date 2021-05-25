@@ -40,7 +40,9 @@ The main functionalities provided to employees are:
 - the current version uses Session as a login/logout mechanism a big improvment would be moving this to ASP .NET Identity
 - **DONE** decide if macking the controllers (some ) async will speed up the website
 - **WON'T DO** in the future, the controllers will have some very complex lines of code (complex data retrieval from the db and such), in order to keep the controllers thin a service layer could be implemented, then the controllers will only be focused on making the call and handling the result.
-- **DONE**some models use properties which can only have a limited set of values. For example the number of rates for a loan cannot be any "int", can only be 3, 6, 12, 24, 36. Which implies that we must use an enum for that property.
+- **DONE** some models use properties which can only have a limited set of values. For example the number of rates for a loan cannot be any "int", can only be 3, 6, 12, 24, 36. Which implies that we must use an enum for that property.
+- Nice to have feature: when in loan create use case, put a button where the user can **Preview** the overall rates and payments of the desired loan, so he can decide if he really want's it
+
 # Status of the project 
 
 The project is at the initial phase.
