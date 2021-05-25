@@ -13,7 +13,7 @@ namespace CarpAssociationWebsite.ViewModels
 
         // public int NewMembersThisMonth { get; set; } i cannot do this because I do not have Date Joined on member
 
-        public int TotalMoneyFromLoanInterestRateThisMonth { get; set; }
+        public decimal TotalMoneyFromLoanInterestRateThisMonth { get; set; }
 
         // public int TotalNumberOfMembers { get; set; } we get this from List<Memebers> members
 
