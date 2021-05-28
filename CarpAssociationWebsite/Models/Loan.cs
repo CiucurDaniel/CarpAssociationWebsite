@@ -11,21 +11,21 @@ namespace CarpAssociationWebsite.Models
     public enum NumberOfRates
     {
         [Display(Name = "3 rates")]
-        ThreeMonths = 3,
+        ThreeRates = 3,
 
         [Display(Name = "6 rates")]
-        SixMonths = 6,
+        SixRates = 6,
 
         [Display(Name = "12 rates")]
-        TwelveMonths = 12,
+        TwelveRates = 12,
 
         [Display(Name = "24 rates")]
-        TwentyFourMonths = 24,
+        TwentyFourRates = 24,
 
         [Display(Name = "36 rates")]
-        ThirtySixMonths = 36
+        ThirtySixRates = 36
     }
-
+    
 
     public enum LoanStatus
     {
