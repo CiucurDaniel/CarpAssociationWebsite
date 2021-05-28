@@ -249,23 +249,23 @@ namespace CarpAssociationWebsite.Controllers
 
             switch (numberOfRates)
             {
-                case NumberOfRates.SixMonths:
+                case NumberOfRates.SixRates:
                     noOfRates = 6;
                     break;
 
-                case NumberOfRates.ThreeMonths:
+                case NumberOfRates.ThreeRates:
                     noOfRates = 3;
                     break;
 
-                case NumberOfRates.TwelveMonths:
+                case NumberOfRates.TwelveRates:
                     noOfRates = 12;
                     break;
 
-                case NumberOfRates.TwentyFourMonths:
+                case NumberOfRates.TwentyFourRates:
                     noOfRates = 24;
                     break;
 
-                case NumberOfRates.ThirtySixMonths:
+                case NumberOfRates.ThirtySixRates:
                     noOfRates = 36;
                     break;
 
@@ -314,7 +314,16 @@ namespace CarpAssociationWebsite.Controllers
         /// <returns>the view with the loan summary the rates and all CONVERTED TO PDF </returns>  
         public ActionResult PrintLoanSummaryAsPDF(int idOfLoan)
         {
+            // Here we have the View itself, not the partial view, this one includes the website header and footer
             var report = new Rotativa.ActionAsPdf("LoanSummary", new { idOfLoan });
+
+
+
+            // Here we have the partial view which only includes the effective PDF part
+            //var loan = db.Loans.Include(r => r.Rates)
+            //    .SingleOrDefault(b => b.IdLoan == idOfLoan);
+
+            //var report = new Rotativa.PartialViewAsPdf("_LoanSummaryPDF", loan);
             return report;
         }
             
