@@ -42,6 +42,7 @@ The main functionalities provided to employees are:
 - **WON'T DO** in the future, the controllers will have some very complex lines of code (complex data retrieval from the db and such), in order to keep the controllers thin a service layer could be implemented, then the controllers will only be focused on making the call and handling the result.
 - **DONE** some models use properties which can only have a limited set of values. For example the number of rates for a loan cannot be any "int", can only be 3, 6, 12, 24, 36. Which implies that we must use an enum for that property.
 - Nice to have feature: when in loan create use case, put a button where the user can **Preview** the overall rates and payments of the desired loan, so he can decide if he really want's it
+- If the user wrongly enter login details, send a ViewBag which displays that the credentials were entered wrong. For now he has no feedback on what he did wrong in the case where he entered the email correctly and he entered a password but missed it by some characters or something.
 
 # Status of the project 
 
