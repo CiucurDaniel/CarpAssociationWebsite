@@ -33,8 +33,9 @@ The main functionalities provided to employees are:
 - [x] Add jQuery Table (search, filter and pages out of the box)
 - [x] Update jQuery version to have print and better UI
 - [ ] Style the LoanSummary page
-- [ ] Check if Rotativa is still free
+- [x] Check if Rotativa is still free
 - [ ] Add the "Pay rate" functionality
+- [ ] Update home menu cards to a better design
 
 # Problems and or improvements
 - the current version uses Session as a login/logout mechanism a big improvment would be moving this to ASP .NET Identity
@@ -43,6 +44,8 @@ The main functionalities provided to employees are:
 - **DONE** some models use properties which can only have a limited set of values. For example the number of rates for a loan cannot be any "int", can only be 3, 6, 12, 24, 36. Which implies that we must use an enum for that property.
 - Nice to have feature: when in loan create use case, put a button where the user can **Preview** the overall rates and payments of the desired loan, so he can decide if he really want's it
 - If the user wrongly enter login details, send a ViewBag which displays that the credentials were entered wrong. For now he has no feedback on what he did wrong in the case where he entered the email correctly and he entered a password but missed it by some characters or something.
+- ActiveLoansAndEconomyAccounts feels like a too verbose name especially when sufixes like -ViewModel and Controller occur. It would ne good to think of another (shorter) name which would fit both Loans and Economy Accounts togheter. Potential candidate: ActiveOperations.
+- Adding "Date joined on member would give more insights on the Statistics page, this change should be easily due that the joined date is simply calculated in the background ( DateTime.Today() ).
 
 # Status of the project 
 
