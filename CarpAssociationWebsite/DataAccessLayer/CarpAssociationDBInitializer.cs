@@ -26,6 +26,14 @@ namespace CarpAssociationWebsite.DataAccessLayer
             demoMembers.Add(new Member() { FirstName = "Mihai", LastName = "Popescu", City = "Orastie", NetIncome = 2200, Address = "Str. Crisan", IsMarried = true, PhoneNumber = "07756547657", PersonalIdentificationNumber = "34234237685234", State = "Hunedoara" });
             demoMembers.Add(new Member() { FirstName = "Adrian", LastName = "Constatin", City = "Orastie", NetIncome = 3200, Address = "Str. Horia", IsMarried = true, PhoneNumber = "07756747657", PersonalIdentificationNumber = "34234237685234", State = "Hunedoara" });
 
+            demoMembers.Add(new Member() { FirstName = "Geogiana", LastName = "Florina", City = "Orastie", NetIncome = 2200, Address = "Str. Principala", IsMarried = true, PhoneNumber = "07756747757", PersonalIdentificationNumber = "34234467385234", State = "Hunedoara" });
+            demoMembers.Add(new Member() { FirstName = "Larisa", LastName = "Voicu", City = "Orastie", NetIncome = 4200, Address = "Str. Horia", IsMarried = false, PhoneNumber = "07756547657", PersonalIdentificationNumber = "34238237685234", State = "Hunedoara" });
+            demoMembers.Add(new Member() { FirstName = "Mihai", LastName = "Ionescu", City = "Orastie", NetIncome = 8200, Address = "Str. Crisan", IsMarried = false, PhoneNumber = "07859747657", PersonalIdentificationNumber = "34234237685234", State = "Hunedoara" });
+
+            demoMembers.Add(new Member() { FirstName = "Marin", LastName = "Serban", City = "Orastie", NetIncome = 3500, Address = "Str. Principala", IsMarried = true, PhoneNumber = "07456747757", PersonalIdentificationNumber = "34234237385234", State = "Hunedoara" });
+            demoMembers.Add(new Member() { FirstName = "Maria", LastName = "Manole", City = "Orastie", NetIncome = 3400, Address = "Str. Horia", IsMarried = false, PhoneNumber = "07756587657", PersonalIdentificationNumber = "342342376383234", State = "Hunedoara" });
+            demoMembers.Add(new Member() { FirstName = "Adrian", LastName = "Cenusa", City = "Orastie", NetIncome = 1200, Address = "Str. Crisan", IsMarried = false, PhoneNumber = "07856747657", PersonalIdentificationNumber = "34484237685234", State = "Hunedoara" });
+
             context.Members.AddRange(demoMembers);
 
             context.SaveChanges();
