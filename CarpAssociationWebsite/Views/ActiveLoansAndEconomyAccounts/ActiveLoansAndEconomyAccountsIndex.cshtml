@@ -1,0 +1,77 @@
+﻿@model CarpAssociationWebsite.ViewModels.ActiveLoansAndEconomyAccountsViewModel
+
+@{
+    ViewBag.Title = "ActiveLoansAndEconomyAccountsIndex";
+}
+
+<div class="container">
+
+    <h2> Loans </h2>
+
+    <table class="table">
+        <tr>
+            <th>
+                Name and PID
+            </th>
+            <th>
+                Start Date
+            </th>
+            <th>
+                Amount
+            </th>
+            <th>
+                Balance
+            </th>
+            <th>
+                Interest Rate
+            </th>
+            <th>
+                Number of Rates
+            </th>
+            <th>
+                Status
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.Loans)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Member.NameAndPID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Balance)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InterestRate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberOfRates)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.IdLoan }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.IdLoan }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.IdLoan })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+
+    <div>
+        <h2>Economy accounts </h2>
+    </div>
+
+</div>
+
