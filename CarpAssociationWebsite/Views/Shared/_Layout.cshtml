@@ -11,6 +11,12 @@
     {
         @RenderSection("AddToHead", required: false)
     }
+
+    @if (IsSectionDefined("HomeScreenCards"))
+     {
+          @RenderSection("HomeScreenCards", required: false)      
+     }
+
 </head>
 <body>
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">

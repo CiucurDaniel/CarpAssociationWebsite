@@ -163,6 +163,7 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\CustomCssStyles\homescreenCards.css" />
     <Content Include="Content\CustomCssStyles\loginForm.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
