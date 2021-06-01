@@ -53,7 +53,7 @@ namespace CarpAssociationWebsite.Controllers
             {
                 db.EconomyAccountInterests.Add(economyAccountInterest);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("InterestRateDashboardIndex", "InterestRatesDashboard");
             }
 
             return View(economyAccountInterest);
