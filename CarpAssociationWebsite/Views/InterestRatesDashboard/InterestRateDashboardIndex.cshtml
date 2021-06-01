@@ -95,8 +95,6 @@
                         @Html.DisplayFor(modelItem => item.Percentage)
                     </td>
                     <td class="text-center">
-                        <a href="@Url.Action("Edit", "EconomyAccountInterest", new { id = item.Id})">Edit</a> |
-                        <a href="@Url.Action("Details", "EconomyAccountInterest", new { id = item.Id})">Details</a> |
                         <a href="@Url.Action("Delete", "EconomyAccountInterest", new { id = item.Id})">Delete</a>
                     </td>
                 </tr>
@@ -140,9 +138,9 @@
                         @Html.DisplayFor(modelItem => item.Percentage)
                     </td>
                     <td class="text-center">
-                        @Html.ActionLink("Edit", "Edit", "LoanRateInterest", "", new { id = item.Id }) |
-                        @Html.ActionLink("Details", "Details", "LoanRateInterest", "", new { id = item.Id }) |
-                        @Html.ActionLink("Delete", "Delete", "LoanRateInterest", "", new { id = item.Id })
+
+                        <a href="@Url.Action("Delete", "LoanRateInterest", new { id = item.Id })">Delete</a>
+
                     </td>
                 </tr>
             }
