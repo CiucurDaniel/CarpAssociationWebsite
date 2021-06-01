@@ -99,6 +99,8 @@ namespace CarpAssociationWebsite.Controllers
                 // Cannot insert duplicate key in object 'dbo.Loan'. The duplicate key value is (1).
 
                 // Here make a case for treating the error case when a user gives a loan to a member that already has a loan
+
+                // TODO: Double check, now happens at the first db.SaveChanges()
                 db.SaveChanges();
 
                 // return RedirectToAction("Index");

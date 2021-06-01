@@ -6,10 +6,21 @@
 }
 
 
-<div>@Html.ActionLink("Print PDF", "PrintLoanSummaryAsPDF", new { idOfLoan = Model.IdLoan }, new { @class = "btn btn-secondary" })</div>
-
 
 <div class="container">
+
+    <div class="row text-center">
+        <div class="col">
+            <!-- Button which the member uses to print the PDF statement -->
+            <div>@Html.ActionLink("Print PDF", "PrintLoanSummaryAsPDF", new { idOfLoan = Model.IdLoan }, new { @class = "btn btn-secondary" })</div>
+        </div>
+
+        <div class="col">
+            <!-- Button which redirect the user to the Active loans and economy accounts screen -->
+            <div class="btn btn-secondary"><a href="@Url.Action("ActiveLoansAndEconomyAccountsIndex", "ActiveLoansAndEconomyAccounts")">Exit</a></div>
+        </div>
+    </div>
+
 
     <!-- Tittle screen -->
     <div class="py-5 text-center">

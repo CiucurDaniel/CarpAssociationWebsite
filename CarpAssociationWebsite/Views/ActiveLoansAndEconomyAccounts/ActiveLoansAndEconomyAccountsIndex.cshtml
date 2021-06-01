@@ -4,68 +4,188 @@
     ViewBag.Title = "ActiveLoansAndEconomyAccountsIndex";
 }
 
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <!-- New version of Data Tables added bellow -->
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.24/b-1.7.0/b-html5-1.7.0/b-print-1.7.0/r-2.2.7/sc-2.0.3/datatables.min.css" />
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.24/b-1.7.0/b-html5-1.7.0/b-print-1.7.0/r-2.2.7/sc-2.0.3/datatables.min.js"></script>
+
+
+
+    <!-- (document).ready checks the DOM of the page and when is ready it executes the JS code. -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#tableWithActiveLoans').DataTable({
+                dom: 'lBfrtip',
+
+                "scrollX": true,
+                "scrollY": 210,
+                "order": [],
+                "columnDefs": [{
+                    "targets": 'no-sort',
+                    "orderable": true,
+                }],
+                buttons: [
+                    'csv', 'excel', 'pdf', 'print'
+                ]
+            });
+        });
+
+        $(document).ready(function () {
+            $('#tableWithEconomyAccounts').DataTable({
+                dom: 'lBfrtip',
+                "scrollX": true,
+                "scrollY": 210,
+                "order": [],
+                "columnDefs": [{
+                    "targets": 'no-sort',
+                    "orderable": true,
+                }]
+            });
+        });
+    </script>
+
+}
+
+
 <div class="container">
 
     <h2> Loans </h2>
 
-    <table class="table">
-        <tr>
-            <th>
-                Name and PID
-            </th>
-            <th>
-                Start Date
-            </th>
-            <th>
-                Amount
-            </th>
-            <th>
-                Balance
-            </th>
-            <th>
-                Interest Rate
-            </th>
-            <th>
-                Number of Rates
-            </th>
-            <th>
-                Status
-            </th>
-            <th></th>
-        </tr>
+    <!-- Table with loans -->
 
-        @foreach (var item in Model.Loans)
-        {
+    <table id="tableWithActiveLoans" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Member.NameAndPID)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.StartDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Amount)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Balance)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.InterestRate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NumberOfRates)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Status)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.IdLoan }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.IdLoan }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.IdLoan })
-                </td>
+                <th>
+                    Name and PID
+                </th>
+                <th scope="col">
+                    Date
+                </th>
+                <th>
+                    Amount
+                </th>
+                <th>
+                    Balance
+                </th>
+                <th>
+                    InterestRate
+                </th>
+                <th>
+                    Number of Rates
+                </th>
+                <th class="no-sort text-center" scope="col">
+                    Options
+                </th>
             </tr>
-        }
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Loans)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Member.NameAndPID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StartDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Amount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Balance)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.InterestRate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NumberOfRates)
+                    </td>
+                    <td class="text-center">
 
+                        <a href="@Url.Action("Edit", "Loan", new { id = item.IdLoan})">Edit</a> |
+                        <a href="@Url.Action("Details", "Loan", new { id = item.IdLoan})">Details</a> |
+                        <a href="@Url.Action("Delete", "Loan", new { id = item.IdLoan})">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <!-- TODO: Action links do not work, thye point to the wrong path -->
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <h2>Economy Accounts</h2>
+
+    <!-- Table with Economy Accounts -->
+
+    <table id="tableWithEconomyAccounts" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>
+                    Name and PID
+                </th>
+                <th scope="col">
+                    Date
+                </th>
+                <th>
+                    Amount
+                </th>
+                <th>
+                    Balance
+                </th>
+                <th>
+                    InterestRate
+                </th>
+                <th>
+                    Number of Rates
+                </th>
+                <th class="no-sort text-center" scope="col">
+                    Options
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Loans)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Member.NameAndPID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StartDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Amount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Balance)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.InterestRate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NumberOfRates)
+                    </td>
+                    <td class="text-center">
+                        @Html.ActionLink("Edit", "Edit", "Loan", new { id = item.IdLoan }) |
+                        @Html.ActionLink("Details", "Details", "Loan", new { id = item.IdLoan }) |
+                        @Html.ActionLink("Delete", "Delete", "Loan", new { id = item.IdLoan })
+                    </td>
+                </tr>
+            }
+        </tbody>
     </table>
 
 
@@ -73,5 +193,8 @@
         <h2>Economy accounts </h2>
     </div>
 
-</div>
+    <p>TO DO </p>
+    <p>TO DO </p>
+    <p>TO DO </p>
 
+</div>
