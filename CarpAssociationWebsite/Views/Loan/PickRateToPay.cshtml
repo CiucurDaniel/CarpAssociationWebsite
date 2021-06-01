@@ -1,0 +1,106 @@
+﻿@model CarpAssociationWebsite.Models.Loan
+@{
+    ViewBag.Title = "PickRateToPay";
+
+    bool isNextRateToBePaid = false;
+
+}
+
+
+<div class="container">
+
+    <!-- Tittle screen -->
+    <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="~/Content/Images/pay.png" alt="" width="200" height="200">
+        <h2>Loan Overview</h2>
+        <p class="lead">
+            Pick the next rate to pay
+        </p>
+    </div>
+
+
+    <!-- Loan data from the model -->
+    <div>
+
+        <h6>The member <b>@Model.Member.FirstName  @Model.Member.LastName</b> with ID number: <b>@Model.Member.PersonalIdentificationNumber</b> has requested a loan of <b>@Model.Amount RON</b> on <b>@Model.StartDate.ToShortDateString()</b>.</h6>
+        <h6>Bellow is the table which contains all the rates that the member will have to pay and the additional fees which are present.</h6>
+        <h6>The next rate that must be paid is highlighted, be aware that rates must be paid in order.</h6>
+
+        <!-- Rates -->
+        <div>
+            <h4>Loan Rates</h4>
+            <hr />
+            <table class="table table-striped table-bordered table-sm " cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            Amount
+                        </th>
+                        <th scope="col">
+                            Amount for interest
+                        </th>
+                        <th scope="col">
+                            Total
+                        </th>
+                        <th scope="col">
+                            Date due
+                        </th>
+                        <th scope="col">
+                            Information
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var rate in Model.Rates)
+                    {
+
+                        <tr>
+
+                            <td>@rate.Amount</td>
+
+
+                            <td>@rate.AmountForInterest</td>
+
+
+                            <td>
+                                @rate.Total
+                            </td>
+
+
+                            <td>@rate.DateDue.ToShortDateString()</td>
+
+                            <td>
+                                @{
+                                    if (rate.PaymentStatus == CarpAssociationWebsite.Models.RateStatus.Paid)
+                                    {
+
+                                        <a class="btn btn-outline-success" style="pointer-events: none">Rate was paid</a>
+
+                                    }
+                                    else if (rate.PaymentStatus == CarpAssociationWebsite.Models.RateStatus.WaitingPayment && isNextRateToBePaid == false)
+                                    {
+
+                                        isNextRateToBePaid = true;
+
+                                        <a class="btn btn-warning" href="@Url.Action("PayRate", "Rate", new { idOfRate = rate.IdRate })">Pay rate</a>
+
+                                    }
+                                    else
+                                    {
+
+                                        <a class="btn btn-outline-secondary" style="pointer-events: none">Pay previous rates first</a>
+                                    }
+                                }
+                            </td>
+
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div>
+

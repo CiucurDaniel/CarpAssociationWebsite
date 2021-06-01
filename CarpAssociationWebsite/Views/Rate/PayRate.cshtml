@@ -1,0 +1,58 @@
+﻿@model CarpAssociationWebsite.Models.Rate
+
+@{
+
+    Layout = "~/Views/Shared/_LayoutForPDF.cshtml";
+
+    ViewBag.Title = "RatePayment";
+}
+
+<div class="container">
+
+
+    <!-- Tittle screen -->
+    <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="~/Content/Images/pay.png" alt="" width="200" height="200">
+        <h2>Rate Payment Overview</h2>
+        <p class="lead">
+            Rate detail bellow
+        </p>
+    </div>
+
+    <!-- Effective rate statement -->
+    <div>
+        <h6>The member has paid @Model.Total for this rate out of which: @Model.Amount is the money for the rate and @Model.AmountForInterest represents the interest value.</h6>
+        <h6> The following transaction took place on <b>@DateTime.Today.ToShortDateString().</b> </h6>
+    </div>
+
+    <br />
+    <br />
+    <br />
+
+    <!-- Signature of the carp member and carp employee -->
+    <div>
+        <p style="float: left;">Name and signature of Carp member,</p>
+
+        <p style="float: right;">Name and signature of Carp employee,</p>
+    </div>
+
+    <br />
+    <br />
+    <br />
+
+
+    <!-- Print section -->
+    <div class="row text-center">
+        <div class="col">
+            <!-- Button which the member uses to print the PDF statement -->
+            <div>@Html.ActionLink("Print PDF", "PayRateAsPDF", new { idOfRate = Model.IdRate }, new { @class = "btn btn-secondary" })</div>
+        </div>
+
+        <div class="col">
+            <!-- Button which redirect the user to the Active loans and economy accounts screen -->
+            <a class="btn btn-secondary" href="@Url.Action("ActiveLoansAndEconomyAccountsIndex", "ActiveLoansAndEconomyAccounts")">Exit</a>
+        </div>
+    </div>
+
+</div>
+

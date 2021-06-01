@@ -136,6 +136,7 @@
     <Compile Include="Controllers\LoanController.cs" />
     <Compile Include="Controllers\LoanRateInterestController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
+    <Compile Include="Controllers\RateController.cs" />
     <Compile Include="Controllers\StatisticsAndInformationDashboardController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DataAccessLayer\CarpAssociationDBInitializer.cs" />
@@ -341,6 +342,13 @@
     <Content Include="Views\StatisticsAndInformationDashboard\StatisticsAndInformationDashboardIndex.cshtml" />
     <Content Include="Views\Shared\_LayoutForPDF.cshtml" />
     <Content Include="Views\ActiveLoansAndEconomyAccounts\ActiveLoansAndEconomyAccountsIndex.cshtml" />
+    <Content Include="Views\Rate\Create.cshtml" />
+    <Content Include="Views\Rate\Delete.cshtml" />
+    <Content Include="Views\Rate\Details.cshtml" />
+    <Content Include="Views\Rate\Edit.cshtml" />
+    <Content Include="Views\Rate\Index.cshtml" />
+    <Content Include="Views\Loan\PickRateToPay.cshtml" />
+    <Content Include="Views\Rate\PayRate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

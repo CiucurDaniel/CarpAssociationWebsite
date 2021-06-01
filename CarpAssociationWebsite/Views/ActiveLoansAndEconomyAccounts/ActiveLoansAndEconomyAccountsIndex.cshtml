@@ -74,9 +74,6 @@
                     Amount
                 </th>
                 <th>
-                    Balance
-                </th>
-                <th>
                     InterestRate
                 </th>
                 <th>
@@ -101,9 +98,6 @@
                         @Html.DisplayFor(modelItem => item.Amount)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Balance)
-                    </td>
-                    <td>
                         @Html.DisplayFor(modelItem => item.InterestRate)
                     </td>
                     <td>
@@ -111,8 +105,7 @@
                     </td>
                     <td class="text-center">
 
-                        <a href="@Url.Action("Edit", "Loan", new { id = item.IdLoan})">Edit</a> |
-                        <a href="@Url.Action("Details", "Loan", new { id = item.IdLoan})">Details</a> |
+                        <a href="@Url.Action("PickRateToPay", "Loan", new { idOfLoan = item.IdLoan})">Pay rates</a> |
                         <a href="@Url.Action("Delete", "Loan", new { id = item.IdLoan})">Delete</a>
                     </td>
                 </tr>
@@ -120,7 +113,6 @@
         </tbody>
     </table>
 
-    <!-- TODO: Action links do not work, thye point to the wrong path -->
     <br />
     <br />
     <br />
@@ -179,9 +171,8 @@
                         @Html.DisplayFor(modelItem => item.NumberOfRates)
                     </td>
                     <td class="text-center">
-                        @Html.ActionLink("Edit", "Edit", "Loan", new { id = item.IdLoan }) |
-                        @Html.ActionLink("Details", "Details", "Loan", new { id = item.IdLoan }) |
-                        @Html.ActionLink("Delete", "Delete", "Loan", new { id = item.IdLoan })
+                        <a href="@Url.Action("PickRateToPay", "Loan", new { id = item.IdLoan})">Pay rates</a> |
+                        <a href="@Url.Action("Delete", "Loan", new { id = item.IdLoan})">Delete</a>
                     </td>
                 </tr>
             }

@@ -328,6 +328,18 @@ namespace CarpAssociationWebsite.Controllers
             //var report = new Rotativa.PartialViewAsPdf("_LoanSummaryPDF", loan);
             return report;
         }
-            
+
+
+
+        public ActionResult PickRateToPay(int idOfLoan)
+        {
+
+            var loan = db.Loans.Include(r => r.Rates)
+                .SingleOrDefault(b => b.IdLoan == idOfLoan);
+
+
+
+            return View(loan);
+        }
     }
 }

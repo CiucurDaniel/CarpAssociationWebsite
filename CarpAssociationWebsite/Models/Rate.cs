@@ -36,5 +36,17 @@ namespace CarpAssociationWebsite.Models
         public int IdLoan { get; set; }
 
         public virtual Loan Loan { get; set; }
+
+
+        // Used for some Views like in PickRateToPay / RatePayment
+        // to make a new column more easier than with Blazor
+        [NotMapped]
+        public decimal Total
+        {
+            get
+            {
+                return Amount + AmountForInterest;
+            }
+        }
     }
 }   
