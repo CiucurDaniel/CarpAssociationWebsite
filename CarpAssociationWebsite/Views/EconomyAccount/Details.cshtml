@@ -1,0 +1,74 @@
+﻿@model CarpAssociationWebsite.Models.EconomyAccount
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>EconomyAccount</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Member.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Member.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DepositAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepositAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateStarted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateStarted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Duration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Duration)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InterestRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InterestRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProfitFromInterest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProfitFromInterest)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TaxedAmmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaxedAmmount)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EconomyAccountId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

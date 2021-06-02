@@ -25,7 +25,6 @@ namespace CarpAssociationWebsite.DataAccessLayer
         public DbSet<Member> Members { get; set; }
         public DbSet<EconomyAccount> EconomyAccounts { get; set; }
         public DbSet<EconomyAccountInterest> EconomyAccountInterests { get; set; }
-        public DbSet<EconomyAccountHistory> EconomyAccountHistories { get; set; }
         public DbSet<Loan> Loans { get; set; }  
         public DbSet<Rate> LoanRates { get; set; }
         public DbSet<LoanRateInterest> LoanRateInterests { get; set; }

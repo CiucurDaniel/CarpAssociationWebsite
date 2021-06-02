@@ -129,6 +129,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ActiveLoansAndEconomyAccountsController.cs" />
+    <Compile Include="Controllers\EconomyAccountController.cs" />
     <Compile Include="Controllers\EconomyAccountInterestController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InterestRatesDashboardController.cs" />
@@ -342,6 +343,11 @@
     <Content Include="Views\Rate\Index.cshtml" />
     <Content Include="Views\Loan\PickRateToPay.cshtml" />
     <Content Include="Views\Rate\PayRate.cshtml" />
+    <Content Include="Views\EconomyAccount\Create.cshtml" />
+    <Content Include="Views\EconomyAccount\Delete.cshtml" />
+    <Content Include="Views\EconomyAccount\Details.cshtml" />
+    <Content Include="Views\EconomyAccount\Edit.cshtml" />
+    <Content Include="Views\EconomyAccount\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
