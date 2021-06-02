@@ -51,9 +51,13 @@ namespace CarpAssociationWebsite.Models
         public decimal InterestRate { get; set; }
 
         // How much the member will earn from Interest 
+        [Required]
+        [Display(Name = "Profit from interest")]
         public decimal ProfitFromInterest { get; set; }
 
         // The amount of money from ProfitFromInterest which are taxed, currently 10%
+        [Required]
+        [Display(Name = "Taxed Amount")]
         public decimal TaxedAmmount { get; set; }
 
 
