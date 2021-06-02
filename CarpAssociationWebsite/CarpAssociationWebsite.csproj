@@ -129,7 +129,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ActiveLoansAndEconomyAccountsController.cs" />
-    <Compile Include="Controllers\EconomyAccountController.cs" />
     <Compile Include="Controllers\EconomyAccountInterestController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InterestRatesDashboardController.cs" />
@@ -144,7 +143,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\EconomyAccountHistory.cs" />
     <Compile Include="Models\EconomyAccountInterest.cs" />
     <Compile Include="Models\Loan.cs" />
     <Compile Include="Models\Rate.cs" />
@@ -312,11 +310,6 @@
     <Content Include="Views\Member\Details.cshtml" />
     <Content Include="Views\Member\Edit.cshtml" />
     <Content Include="Views\Member\Index.cshtml" />
-    <Content Include="Views\EconomyAccount\Create.cshtml" />
-    <Content Include="Views\EconomyAccount\Delete.cshtml" />
-    <Content Include="Views\EconomyAccount\Details.cshtml" />
-    <Content Include="Views\EconomyAccount\Edit.cshtml" />
-    <Content Include="Views\EconomyAccount\Index.cshtml" />
     <Content Include="Views\EconomyAccountInterest\Create.cshtml" />
     <Content Include="Views\EconomyAccountInterest\Delete.cshtml" />
     <Content Include="Views\EconomyAccountInterest\Details.cshtml" />

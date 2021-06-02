@@ -7,6 +7,25 @@ using System.Web;
 
 namespace CarpAssociationWebsite.Models
 {
+    public enum NumberOfMonths
+    {
+        [Display(Name = "3 months")]
+        ThreeMonths = 3,
+
+        [Display(Name = "6 months")]
+        SixMonths = 6,
+
+        [Display(Name = "12 months")]
+        TwelveMonths = 12,
+
+        [Display(Name = "24 months")]
+        TwentyFourMonths = 24,
+
+        [Display(Name = "36 months")]
+        ThirtySixMonths = 36
+    }
+    
+
     public class EconomyAccount
     {
         [Key]
@@ -14,8 +33,8 @@ namespace CarpAssociationWebsite.Models
         public int EconomyAccountId { get; set; }
 
         [Required]
-        [Display(Name = "Balance")]
-        public decimal Balance { get; set; } 
+        [Display(Name = "Deposit Amount")]
+        public decimal DepositAmount { get; set; } 
 
         [Required]
         [Display(Name = "Date started")]
@@ -23,10 +42,27 @@ namespace CarpAssociationWebsite.Models
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DateStarted { get; set; }
 
+        [Required]
+        [Display(Name = "Duration")]
+        public NumberOfMonths Duration { get; set; } 
+        
+        [Required]
+        [Display(Name = "Interest Rate")]
+        public decimal InterestRate { get; set; }
+
+        // How much the member will earn from Interest 
+        public decimal ProfitFromInterest { get; set; }
+
+        // The amount of money from ProfitFromInterest which are taxed, currently 10%
+        public decimal TaxedAmmount { get; set; }
+
+
+        /// <summary>
+        /// Relationship configrations bellow
+        /// </summary>
+
+        // add this for one to one relationship between member and loan
         public virtual Member Member { get; set; }
 
-        // TODO: Add another prop : bool Closed { get; set;}
-
-        // might also need an enum instead of closed, and have a renew option
     }
 }
