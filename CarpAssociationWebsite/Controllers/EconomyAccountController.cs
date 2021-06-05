@@ -40,7 +40,14 @@ namespace CarpAssociationWebsite.Controllers
         // GET: EconomyAccount/Create
         public ActionResult Create()
         {
-            ViewBag.EconomyAccountId = new SelectList(db.Members, "Id", "FirstName");
+            ViewBag.EconomyAccountId = new SelectList(db.Members, "Id", "NameAndPID");
+
+            // Get the latest InterestRate
+            var latestInterestRate = db.EconomyAccountInterests.OrderByDescending(p => p.Date)
+                .FirstOrDefault();
+
+            ViewBag.InterestRateLatest = latestInterestRate.Percentage;
+
             return View();
         }
 
@@ -49,16 +56,34 @@ namespace CarpAssociationWebsite.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EconomyAccountId,DepositAmount,DateStarted,Duration,InterestRate,ProfitFromInterest,TaxedAmmount")] EconomyAccount economyAccount)
+        public ActionResult Create([Bind(Include = "EconomyAccountId,DepositAmount,DateStarted,Duration")] EconomyAccount economyAccount)
         {
             if (ModelState.IsValid)
             {
+
+                // Profit from interest
+                economyAccount.ProfitFromInterest = 120.0M;
+
+                // Taxed Amount
+                economyAccount.TaxedAmount = 12.0M;
+
+                // Get the latest InterestRate
+                var latestInterestRate = db.EconomyAccountInterests.OrderByDescending(p => p.Date)
+                    .FirstOrDefault();
+
+                economyAccount.InterestRate = latestInterestRate.Percentage;
+
                 db.EconomyAccounts.Add(economyAccount);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
+                // No, because we will give the member the overview at the end of the economy account duration
+                //return RedirectToAction("EconomyAccountSummary", new { idOfLoan = newlyCreatedLoan.IdLoan });
+
+                return RedirectToAction("ActiveLoansAndEconomyAccountsIndex", "ActiveLoansAndEconomyAccounts");
             }
 
-            ViewBag.EconomyAccountId = new SelectList(db.Members, "Id", "FirstName", economyAccount.EconomyAccountId);
+            // change select list to one with ID and name like on Loan
+            ViewBag.EconomyAccountId = new SelectList(db.Members, "Id", "NameAndPID", economyAccount.EconomyAccountId);
             return View(economyAccount);
         }
 
@@ -74,7 +99,7 @@ namespace CarpAssociationWebsite.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.EconomyAccountId = new SelectList(db.Members, "Id", "FirstName", economyAccount.EconomyAccountId);
+            ViewBag.EconomyAccountId = new SelectList(db.Members, "Id", "NameAndPID", economyAccount.EconomyAccountId);
             return View(economyAccount);
         }
 
@@ -83,7 +108,7 @@ namespace CarpAssociationWebsite.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EconomyAccountId,DepositAmount,DateStarted,Duration,InterestRate,ProfitFromInterest,TaxedAmmount")] EconomyAccount economyAccount)
+        public ActionResult Edit([Bind(Include = "EconomyAccountId,DepositAmount,DateStarted,Duration,InterestRate,ProfitFromInterest,TaxedAmount")] EconomyAccount economyAccount)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +116,7 @@ namespace CarpAssociationWebsite.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.EconomyAccountId = new SelectList(db.Members, "Id", "FirstName", economyAccount.EconomyAccountId);
+            ViewBag.EconomyAccountId = new SelectList(db.Members, "Id", "NameAndPID", economyAccount.EconomyAccountId);
             return View(economyAccount);
         }
 

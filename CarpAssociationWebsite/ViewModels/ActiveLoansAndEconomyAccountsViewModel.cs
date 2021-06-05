@@ -11,8 +11,8 @@ namespace CarpAssociationWebsite.ViewModels
 
         public List<Loan> Loans { get; set; }
 
-        // TODO: Implement when EconomyAccount is done
-        //public List<EconomyAccount> EconomyAccounts { get; set; }
+
+        public List<EconomyAccount> EconomyAccounts { get; set; }
 
     }
 }

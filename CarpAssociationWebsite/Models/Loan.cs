@@ -65,7 +65,7 @@ namespace CarpAssociationWebsite.Models
 
 
         /// <summary>
-        /// Relationship configrations bellow
+        /// Relationship configurations bellow
         /// </summary>
 
         // add this for one to one relationship between member and loan

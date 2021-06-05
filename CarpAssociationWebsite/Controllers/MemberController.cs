@@ -55,7 +55,7 @@ namespace CarpAssociationWebsite.Controllers
             {
                 db.Members.Add(member);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("StatisticsAndInformationDashboardIndex", "StatisticsAndInformationDashboard");
             }
 
             ViewBag.Id = new SelectList(db.EconomyAccounts, "EconomyAccountId", "EconomyAccountId", member.Id);

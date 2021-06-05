@@ -17,8 +17,7 @@ namespace CarpAssociationWebsite.Controllers
         {
             // get economy accounts
 
-            // TODO: Perform query to get Economy Accounts
-            // var economyAccounts = db.EconomyAccounts.ToList();
+            var economyAccounts = db.EconomyAccounts.ToList();
 
             // get loans that are still ongoing  
 
@@ -26,7 +25,8 @@ namespace CarpAssociationWebsite.Controllers
 
             ActiveLoansAndEconomyAccountsViewModel loansAndEconomyAccountsViewModel = new ActiveLoansAndEconomyAccountsViewModel()
             {
-                Loans = loans
+                Loans = loans,
+                EconomyAccounts = economyAccounts
             };
             return View(loansAndEconomyAccountsViewModel);
         }

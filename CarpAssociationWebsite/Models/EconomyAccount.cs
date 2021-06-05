@@ -58,11 +58,11 @@ namespace CarpAssociationWebsite.Models
         // The amount of money from ProfitFromInterest which are taxed, currently 10%
         [Required]
         [Display(Name = "Taxed Amount")]
-        public decimal TaxedAmmount { get; set; }
-
+        public decimal TaxedAmount { get; set; }
+        
 
         /// <summary>
-        /// Relationship configrations bellow
+        /// Relationship configurations bellow
         /// </summary>
 
         // add this for one to one relationship between member and loan

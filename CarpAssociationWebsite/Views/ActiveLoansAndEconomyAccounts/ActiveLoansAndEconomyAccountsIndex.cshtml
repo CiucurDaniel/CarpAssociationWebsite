@@ -128,20 +128,17 @@
                 <th>
                     Name and PID
                 </th>
-                <th scope="col">
-                    Date
+                <th>
+                    Deposit Amount
                 </th>
                 <th>
-                    Amount
+                    Date Started
                 </th>
                 <th>
-                    Balance
+                    Duration
                 </th>
                 <th>
-                    InterestRate
-                </th>
-                <th>
-                    Number of Rates
+                    Interest rate
                 </th>
                 <th class="no-sort text-center" scope="col">
                     Options
@@ -149,43 +146,35 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model.Loans)
+            @foreach (var item in Model.EconomyAccounts)
             {
                 <tr>
                     <td>
                         @Html.DisplayFor(modelItem => item.Member.NameAndPID)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.StartDate)
+                        @Html.DisplayFor(modelItem => item.DepositAmount)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Amount)
+                        @Html.DisplayFor(modelItem => item.DateStarted)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Balance)
+                        @Html.DisplayFor(modelItem => item.Duration)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.InterestRate)
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NumberOfRates)
-                    </td>
                     <td class="text-center">
-                        <a href="@Url.Action("PickRateToPay", "Loan", new { id = item.IdLoan})">Pay rates</a> |
-                        <a href="@Url.Action("Delete", "Loan", new { id = item.IdLoan})">Delete</a>
+                        <!-- Details -->
+                        <a href="@Url.Action("Details", "EconomyAccount", new {id = item.EconomyAccountId})">Details</a> |
+
+                        <!-- Here make an if with a green button is withdrawing is possible -->
+                        <a href="@Url.Action("Withdraw", "EconomyAccount", new {id = item.EconomyAccountId})">Pay rates</a>
+                        <!-- Or a grey inactive button is the economy account duration has not been met-->
                     </td>
                 </tr>
             }
         </tbody>
     </table>
-
-
-    <div>
-        <h2>Economy accounts </h2>
-    </div>
-
-    <p>TO DO </p>
-    <p>TO DO </p>
-    <p>TO DO </p>
 
 </div>
