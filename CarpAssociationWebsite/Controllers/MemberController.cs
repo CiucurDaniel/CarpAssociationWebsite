@@ -89,7 +89,7 @@ namespace CarpAssociationWebsite.Controllers
             {
                 db.Entry(member).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("StatisticsAndInformationDashboardIndex", "StatisticsAndInformationDashboard");
             }
             ViewBag.Id = new SelectList(db.EconomyAccounts, "EconomyAccountId", "EconomyAccountId", member.Id);
             return View(member);
