@@ -118,7 +118,8 @@ namespace CarpAssociationWebsite.Controllers
             Member member = db.Members.Find(id);
             db.Members.Remove(member);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            //return RedirectToAction("Index");
+            return RedirectToAction("StatisticsAndInformationDashboardIndex", "StatisticsAndInformationDashboard");
         }
 
         protected override void Dispose(bool disposing)

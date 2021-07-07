@@ -10,7 +10,9 @@
 
     decimal taxedAmount = @Model.TaxedAmount;
 
-    decimal memberMoney = depositAmount + taxedAmount;
+    decimal earnings = @Model.ProfitFromInterest;
+
+    decimal memberMoney = depositAmount + earnings - taxedAmount;
 
 }
 <div class="container">
@@ -44,8 +46,12 @@
                 <td>@Model.InterestRate %</td>
             </tr>
             <tr>
-                <td>Taxed amount</td>
+                <td>Tax percentage</td>
                 <td>10 %</td>
+            </tr>
+            <tr>
+                <td>Interest earnings</td>
+                <td>@Model.ProfitFromInterest RON</td>
             </tr>
             <tr>
                 <td>Amount that was taxed from the member</td>

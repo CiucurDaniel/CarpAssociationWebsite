@@ -60,12 +60,14 @@ namespace CarpAssociationWebsite.Controllers
         {
             if (ModelState.IsValid)
             {
+                // Check if a member already has an account
+                if (db.EconomyAccounts.Find(economyAccount.EconomyAccountId) != null)
+                {
+                    return RedirectToAction("AlreadyHasEconomyAccount");
+                }
 
-                // Profit from interest
-                economyAccount.ProfitFromInterest = 120.0M;
+                // Member doesn't already have an account so just proceed forward, he is eligible for an account
 
-                // Taxed Amount
-                economyAccount.TaxedAmount = 12.0M;
 
                 // Get the latest InterestRate
                 var latestInterestRate = db.EconomyAccountInterests.OrderByDescending(p => p.Date)
@@ -73,7 +75,20 @@ namespace CarpAssociationWebsite.Controllers
 
                 economyAccount.InterestRate = latestInterestRate.Percentage;
 
+
+                // Convert the duration (months to integer then to decimal 
+                decimal monthsToDecimal = Convert.ToDecimal( ConvertEnumMonthsToInteger(economyAccount.Duration) );
+
+                // Profit from interest
+                economyAccount.ProfitFromInterest = (((economyAccount.DepositAmount * 30) / 360) *
+                                                    economyAccount.InterestRate * monthsToDecimal) - economyAccount.DepositAmount;
+
+                // Taxed Amount
+                economyAccount.TaxedAmount = (economyAccount.ProfitFromInterest * 10) /100;
+
+
                 db.EconomyAccounts.Add(economyAccount);
+
                 db.SaveChanges();
 
 
@@ -196,7 +211,12 @@ namespace CarpAssociationWebsite.Controllers
             return withdrawConfirmationDocument;
         }
 
-        
+
+        public ActionResult AlreadyHasEconomyAccount()
+        {
+            return View();
+        }
+
 
         public static int ConvertEnumMonthsToInteger(NumberOfMonths numberOfMonths)
         {

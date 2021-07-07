@@ -98,6 +98,34 @@
                     }
                 </tbody>
             </table>
+            
+            @if (isNextRateToBePaid == false)
+            {
+                
+                <!-- Close loan area -->
+                <div class="row">
+                    <div class="col-md-12 mb-3">
+                        <div class="form-group row">
+                            <p class="lead">
+                                All the rates have been paid, the loan can be closed:
+                            </p>
+                            <div class="col">
+                                <!-- Button which the user uses to close the loan -->
+                                @using (Html.BeginForm("Delete", "Loan", new { id = Model.IdLoan }, FormMethod.Post, new { @class = "btn btn-danger" }))
+                                {
+                                    @Html.AntiForgeryToken()
+
+                                    <div class="form-actions no-color">
+                                        <input type="submit" value="Close loan" class="btn btn-default" />
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            }
 
         </div>
     </div>

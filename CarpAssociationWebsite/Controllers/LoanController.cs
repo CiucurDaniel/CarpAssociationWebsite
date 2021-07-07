@@ -63,6 +63,15 @@ namespace CarpAssociationWebsite.Controllers
             if (ModelState.IsValid)
             {
 
+                // Check if a member already has an account
+                if (db.Loans.Find(loan.IdLoan) != null)
+                {
+                    return RedirectToAction("AlreadyHasALoan");
+                }
+
+                // Member doesn't already have a loan so just proceed forward, he is eligible for a loan
+
+
                 // Add balance and status here do not make the user input them because first time their value is predefined
 
                 loan.Balance = loan.Amount; // at first balance = amount
@@ -97,13 +106,9 @@ namespace CarpAssociationWebsite.Controllers
 
                 // SqlException: Violation of PRIMARY KEY constraint 'PK_dbo.Loan'.
                 // Cannot insert duplicate key in object 'dbo.Loan'. The duplicate key value is (1).
+                // Fixed: is treated with the above if statement
 
-                // Here make a case for treating the error case when a user gives a loan to a member that already has a loan
-
-                // TODO: Double check, now happens at the first db.SaveChanges()
                 db.SaveChanges();
-
-                // return RedirectToAction("Index");
 
                 return RedirectToAction("LoanSummary", new { idOfLoan = newlyCreatedLoan.IdLoan});
             }
@@ -170,7 +175,8 @@ namespace CarpAssociationWebsite.Controllers
             Loan loan = db.Loans.Find(id);
             db.Loans.Remove(loan);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            //return RedirectToAction("Index");
+            return RedirectToAction("ActiveLoansAndEconomyAccountsIndex", "ActiveLoansAndEconomyAccounts");
         }
 
         protected override void Dispose(bool disposing)
@@ -209,11 +215,9 @@ namespace CarpAssociationWebsite.Controllers
 
             for(int index = 1; index <= numberOfRates; index++)
             {
-                // TODO: Add the corect formula here
-                decimal interestToPayForCurrentRate = balance * (interest / 100);
+                // Calculate interest that needs to be paid
+                decimal interestToPayForCurrentRate = ((balance * 30) / 360 ) * (interest / 100);
 
-                // No longer needed, amount and interest_amount are being kept separately
-                // decimal amountToPayForCurrentRate = interestToPayForCurrentRate + amountForASingleRate;
 
                 // A rate was calculated now cut it from balance
                 balance -= amountForASingleRate;
@@ -340,6 +344,12 @@ namespace CarpAssociationWebsite.Controllers
 
 
             return View(loan);
+        }
+
+
+        public ActionResult AlreadyHasALoan()
+        {
+            return View();
         }
     }
 }

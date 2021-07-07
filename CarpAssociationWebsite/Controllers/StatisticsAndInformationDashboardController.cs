@@ -22,9 +22,9 @@ namespace CarpAssociationWebsite.Controllers
 
             StatisticsAndInformationViewModel model = new StatisticsAndInformationViewModel
             {
-                ActiveLoans = 4,
-                ActiveEconomyAccounts = 10,
-                TotalMoneyFromLoanInterestRateThisMonth = 10000.0M,
+                ActiveLoans = db.Loans.Count(),
+                ActiveEconomyAccounts = db.EconomyAccounts.Count(),
+                TotalNumberOfMembers = db.Members.Count(),
                 Members = members
             };
             return View(model);

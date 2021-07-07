@@ -15,88 +15,128 @@
             Are you sure you want to close this economy account?
         </p>
     </div>
-    
-    
+
+
     <!-- Print statement area -->
-    <p class="lead">
-        Before closing the account please print the statement for the member. This step is mandatory!
-    </p>
-
-    <!-- Button which the user uses to print the PDF statement -->
-    <div>@Html.ActionLink("Print PDF", "WithdrawAsPDF", new { idOfEconomyAccount = Model.EconomyAccountId }, new { @class = "btn btn-secondary" })</div>
-
-    
+    <div class="row">
+        <div class="col-md-12 mb-3">
+            <div class="form-group row">
+                <p class="lead">
+                    Before closing the account please print the statement for the member. This step is mandatory!
+                </p>
+                <div class="col">
+                    <!-- Button which the user uses to print the PDF statement -->
+                    <div>@Html.ActionLink("Print PDF", "WithdrawAsPDF", new { idOfEconomyAccount = Model.EconomyAccountId }, new { @class = "btn btn-success" })</div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div>
-        <h4>EconomyAccount</h4>
+
+        <!-- Name and First Name -->
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <!-- First Name -->
+                <div class="form-group row">
+                    <b>@Html.DisplayNameFor(model => model.Member.FirstName) :</b>
+                    <div class="col">
+                        @Html.DisplayFor(model => model.Member.FirstName)
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <!-- Last Name -->
+                <div class="form-group row">
+                    <b>@Html.DisplayNameFor(model => model.Member.LastName) :</b>
+                    <div class="col">
+                        @Html.DisplayFor(model => model.Member.LastName)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Deposit Amount and duration -->
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <!-- Deposit Amount -->
+                <div class="form-group row">
+                    <b>@Html.DisplayNameFor(model => model.DepositAmount) :</b>
+                    <div class="col">
+                        @Html.DisplayFor(model => model.DepositAmount) RON
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <!-- Duration -->
+                <div class="form-group row">
+                    <b>@Html.DisplayNameFor(model => model.Duration) :</b>
+                    <div class="col">
+                        @Html.DisplayFor(model => model.Duration)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Interest rate and taxed amount -->
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <!-- Interest rate -->
+                <div class="form-group row">
+                    <b>@Html.DisplayNameFor(model => model.InterestRate) :</b>
+                    <div class="col">
+                        @Html.DisplayFor(model => model.InterestRate) %
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <!-- Taxed amount -->
+                <div class="form-group row">
+                    <b>@Html.DisplayNameFor(model => model.TaxedAmount) :</b>
+                    <div class="col">
+                        @Html.DisplayFor(model => model.TaxedAmount) RON
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Date started and profit from interest -->
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <!-- Date started -->
+                <div class="form-group row">
+                    <b>@Html.DisplayNameFor(model => model.DateStarted) :</b>
+                    <div class="col">
+                        @Html.DisplayFor(model => model.DateStarted)
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <!-- Profit from interest -->
+                <div class="form-group row">
+                    <b>@Html.DisplayNameFor(model => model.ProfitFromInterest) :</b>
+                    <div class="col">
+                        @Html.DisplayFor(model => model.ProfitFromInterest) RON
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.Member.FirstName)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Member.FirstName)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.DepositAmount)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.DepositAmount)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.DateStarted)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.DateStarted)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Duration)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Duration)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.InterestRate)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.InterestRate)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.ProfitFromInterest)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.ProfitFromInterest)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.TaxedAmount)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.TaxedAmount)
-            </dd>
-
-        </dl>
 
         @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
 
-    <div class="form-actions no-color">
-        <input type="submit" value="Delete" class="btn btn-default" /> |
-        <a  href="@Url.Action("ActiveLoansAndEconomyAccountsIndex", "ActiveLoansAndEconomyAccounts")">Back to list</a>
-    </div>
+            <div class="form-actions no-color">
+                <div class="form-group row justify-content-center">
+                    <input type="submit" value="Close account" class="btn btn-warning m-3" />
+                    <a class="m-3" href="@Url.Action("ActiveLoansAndEconomyAccountsIndex", "ActiveLoansAndEconomyAccounts")">Back to list</a>
+                </div>
+            </div>
         }
     </div>
 

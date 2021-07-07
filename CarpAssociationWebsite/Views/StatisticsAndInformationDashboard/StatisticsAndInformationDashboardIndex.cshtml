@@ -43,21 +43,38 @@
 }
 
 <div class="container">
+    
+
+    <!-- Tittle screen -->
+    <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-2" src="~/Content/Images/stats.jpg" alt="" width="200" height="150">
+        <h2>Statistics And Information Dashboard</h2>
+        <p class="lead">
+            View statistics and manage members from this page
+        </p>
+    </div>
 
 
-    <!-- Title screen -->
-    <h2>Statistics And Information Dashboard</h2>
+    <div class="card text-white bg-info mb-3 mr-3 ml-3">
+        <div class="card-body">
+            Currently there are @Model.TotalNumberOfMembers members enrolled on our association.
+        </div>
+    </div>
 
-    <p>Aici voi pune statistici</p>
 
-    <br />
-    <br />
+    <div class="card text-white bg-info m-3">
+        <div class="card-body">
+            Currently there are @Model.ActiveLoans active loans.
+        </div>
+    </div>
 
-    <p>Gen @Model.ActiveLoans loanuri active.</p>
 
-    <p> Si altele </p>
+    <div class="card text-white bg-info m-3">
+        <div class="card-body">
+            Currently there are @Model.ActiveEconomyAccounts active economy accounts.
+        </div>
+    </div>
 
-    <p> Si altele </p>
 
     <!-- Table with member where you can list them, edit them or view all the details of them -->
     <table id="tableWithMembers" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">

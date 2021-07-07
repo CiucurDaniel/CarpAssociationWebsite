@@ -350,6 +350,8 @@
     <Content Include="Views\EconomyAccount\Index.cshtml" />
     <Content Include="Views\EconomyAccount\EconomyAccountSummary.cshtml" />
     <Content Include="Views\EconomyAccount\Withdraw.cshtml" />
+    <Content Include="Views\EconomyAccount\AlreadyHasEconomyAccount.cshtml" />
+    <Content Include="Views\Loan\AlreadyHasALoan.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

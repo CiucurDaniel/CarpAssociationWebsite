@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "AlreadyHasALoan";
+}
+
+
+<div class="container">
+
+
+    <!-- Tittle screen -->
+    <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="~/Content/Images/warning.png" alt="" width="300" height="300">
+        <h2>Action is not possible</h2>
+        <p class="lead">
+            Member already has an ongoing loan! The member must finish the currently ongoing loan before requesting another one.
+        </p>
+    </div>
+    
+    <br/>
+    <br/>
+
+    <div class="form-group row justify-content-center">
+
+        <a href="@Url.Action("Create", "Loan")" class="btn btn-success m-3">OK</a>
+        <a class="m-3" href="@Url.Action("ActiveLoansAndEconomyAccountsIndex", "ActiveLoansAndEconomyAccounts")">Go to active loans and economy accounts</a>
+
+    </div>
+
+
+</div>
