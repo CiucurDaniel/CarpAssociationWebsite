@@ -1,0 +1,76 @@
+﻿@model CarpAssociationWebsite.Models.EconomyAccount
+@{
+    ViewBag.Title = "Withdraw";
+
+    Layout = "~/Views/Shared/_LayoutForPDF.cshtml";
+}
+
+@{
+    decimal depositAmount = @Model.DepositAmount;
+
+    decimal taxedAmount = @Model.TaxedAmount;
+
+    decimal memberMoney = depositAmount + taxedAmount;
+
+}
+<div class="container">
+
+
+    <!-- Tittle screen -->
+    <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="~/Content/Images/Carp_logo.png" alt="" width="200" height="200">
+        <h2>Withdraw Statement</h2>
+        <p class="lead">
+            The following document states the withdrawal of the money from the economy account on @DateTime.Today.ToShortDateString()
+        </p>
+    </div>
+
+
+    <!-- Economy account data from the model -->
+    <div>
+
+        <h6>The member <b>@Model.Member.FirstName  @Model.Member.LastName</b> with ID number: <b>@Model.Member.PersonalIdentificationNumber</b> has opened an economy account on <b>@DateTime.Today.ToShortDateString()</b>.</h6>
+        <h6>The economy account had the duration of @Model.Duration.</h6>
+        <h6>Bellow is the table which contains information about the account:</h6>
+
+        <!-- Mini table with interest rate and applied taxes -->
+        <table class="table table-striped table-bordered table-sm " cellspacing="0" width="100%">
+            <tr>
+                <td>Amount deposited by the member</td>
+                <td>@Model.DepositAmount RON</td>
+            </tr>
+            <tr>
+                <td>Interest rate</td>
+                <td>@Model.InterestRate %</td>
+            </tr>
+            <tr>
+                <td>Taxed amount</td>
+                <td>10 %</td>
+            </tr>
+            <tr>
+                <td>Amount that was taxed from the member</td>
+                <td>@Model.TaxedAmount RON</td>
+            </tr>
+            <tr>
+                <td>Amount to be given to the member</td>
+                <td>@memberMoney RON</td>
+            </tr>
+        </table>
+
+        <!-- Legal statements regarding the started economy account which took place -->
+        <div>
+            <p>I confirm the successful closing and withdrawing of my economy account.</p>
+        </div>
+
+        <br />
+        <br />
+
+        <!-- Signature of the carp member and carp employee -->
+        <div>
+            <p style="float: left;">Name and signature of Carp member,</p>
+
+            <p style="float: right;">Carp Employee signature,</p>
+        </div>
+
+    </div>
+</div>

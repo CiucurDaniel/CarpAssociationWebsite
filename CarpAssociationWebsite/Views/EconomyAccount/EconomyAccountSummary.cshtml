@@ -1,0 +1,73 @@
+﻿@model CarpAssociationWebsite.Models.EconomyAccount
+@{
+    ViewBag.Title = "EconomyAccountSummary";
+
+    Layout = "~/Views/Shared/_LayoutForPDF.cshtml";
+}
+
+
+<div class="container">
+
+    <div class="row text-center">
+        <div class="col">
+            <!-- Button which the user uses to print the PDF statement -->
+            <div>@Html.ActionLink("Print PDF", "PrintEconomyAccountSummaryAsPDF", new { idOfEconomyAccount = Model.EconomyAccountId }, new { @class = "btn btn-secondary" })</div>
+        </div>
+
+        <div class="col">
+            <!-- Button which redirect the user to the Active loans and economy accounts screen -->
+            <div class="btn btn-secondary"><a href="@Url.Action("ActiveLoansAndEconomyAccountsIndex", "ActiveLoansAndEconomyAccounts")">Exit</a></div>
+        </div>
+    </div>
+
+
+    <!-- Tittle screen -->
+    <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="~/Content/Images/Carp_logo.png" alt="" width="200" height="200">
+        <h2>Economy Account Statement</h2>
+        <p class="lead">
+            The following document showcases the economy account deposit made by the undersigned on @DateTime.Today.ToShortDateString()
+        </p>
+    </div>
+
+
+    <!-- Economy account data from the model -->
+    <div>
+
+        <h6>The member <b>@Model.Member.FirstName  @Model.Member.LastName</b> with ID number: <b>@Model.Member.PersonalIdentificationNumber</b> has opened an economy account on <b>@DateTime.Today.ToShortDateString()</b>.</h6>
+        <h6>The economy account will have the duration of @Model.Duration, during this time, the member is not able to withdraw or add more money.</h6>
+        <h6>Bellow is the table which contains information about the opened account:</h6>
+        
+        <!-- Mini table with interest rate and applied taxes -->
+        <table class="table table-striped table-bordered table-sm " cellspacing="0" width="100%">
+            <tr>
+                <td>Amount deposited by the member</td>
+                <td>@Model.DepositAmount %</td>
+            </tr>
+            <tr>
+                <td>Interest rate</td>
+                <td>@Model.InterestRate %</td>
+            </tr>
+            <tr>
+                <td>Taxed amount</td>
+                <td>10 %</td>
+            </tr>
+        </table>
+
+        <!-- Legal statements regarding the started economy account which took place -->
+        <div>
+            <p>I confirm that I was informed of all the fees and regulations that take place for my economy account.</p>
+        </div>
+
+        <br />
+        <br />
+
+        <!-- Signature of the carp member and carp employee -->
+        <div>
+            <p style="float: left;">Name and signature of Carp member,</p>
+
+            <p style="float: right;">Carp Employee signature,</p>
+        </div>
+
+    </div>
+</div>  

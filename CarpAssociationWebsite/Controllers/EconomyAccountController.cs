@@ -13,7 +13,7 @@ namespace CarpAssociationWebsite.Controllers
 {
     public class EconomyAccountController : Controller
     {
-        private CarpAssociationWebsiteContext db = new CarpAssociationWebsiteContext();
+        private readonly CarpAssociationWebsiteContext db = new CarpAssociationWebsiteContext();
 
         // GET: EconomyAccount
         public ActionResult Index()
@@ -76,10 +76,12 @@ namespace CarpAssociationWebsite.Controllers
                 db.EconomyAccounts.Add(economyAccount);
                 db.SaveChanges();
 
-                // No, because we will give the member the overview at the end of the economy account duration
-                //return RedirectToAction("EconomyAccountSummary", new { idOfLoan = newlyCreatedLoan.IdLoan });
 
-                return RedirectToAction("ActiveLoansAndEconomyAccountsIndex", "ActiveLoansAndEconomyAccounts");
+                //return RedirectToAction("ActiveLoansAndEconomyAccountsIndex", "ActiveLoansAndEconomyAccounts");
+
+                var newlyCreatedEconomyAccount = db.EconomyAccounts.SingleOrDefault(b => b.EconomyAccountId == economyAccount.EconomyAccountId);
+
+                return RedirectToAction("EconomyAccountSummary", new { idOfEconomyAccount = newlyCreatedEconomyAccount.EconomyAccountId });
             }
 
             // change select list to one with ID and name like on Loan
@@ -143,7 +145,88 @@ namespace CarpAssociationWebsite.Controllers
             EconomyAccount economyAccount = db.EconomyAccounts.Find(id);
             db.EconomyAccounts.Remove(economyAccount);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            //return RedirectToAction("Index");
+            return RedirectToAction("ActiveLoansAndEconomyAccountsIndex", "ActiveLoansAndEconomyAccounts");
+        }
+
+
+        public ActionResult EconomyAccountSummary(int idOfEconomyAccount)
+        {
+            // search the Economy account
+
+
+            var loan = db.EconomyAccounts.SingleOrDefault(b => b.EconomyAccountId == idOfEconomyAccount);
+
+            // I have the economy account now give it to the View
+
+            return View(loan);
+        }
+
+        
+        public ActionResult PrintEconomyAccountSummaryAsPDF(int idOfEconomyAccount)
+        {
+            // Here we have the View itself, this one includes the website header and footer
+            var report = new Rotativa.ActionAsPdf("EconomyAccountSummary", new { idOfEconomyAccount });
+
+
+            return report;
+        }
+
+
+        public ActionResult Withdraw(int idOfEconomyAccount)
+        {
+            // search the Economy account
+
+
+            var economyAccount = db.EconomyAccounts.SingleOrDefault(b => b.EconomyAccountId == idOfEconomyAccount);
+
+
+            // I have the economy account now give it to the View
+
+            return View(economyAccount);
+        }
+
+
+        public ActionResult WithdrawAsPDF(int idOfEconomyAccount)
+        {
+            // Here we have the View itself, this one includes the website header and footer
+            var withdrawConfirmationDocument = new Rotativa.ActionAsPdf("Withdraw", new { idOfEconomyAccount });
+
+
+            return withdrawConfirmationDocument;
+        }
+
+        
+
+        public static int ConvertEnumMonthsToInteger(NumberOfMonths numberOfMonths)
+        {
+            int noOfMonths = 1;
+
+            switch (numberOfMonths)
+            {
+                case NumberOfMonths.SixMonths:
+                    noOfMonths = 6;
+                    break;
+
+                case NumberOfMonths.ThreeMonths:
+                    noOfMonths = 3;
+                    break;
+
+                case NumberOfMonths.TwelveMonths:
+                    noOfMonths = 12;
+                    break;
+
+                case NumberOfMonths.TwentyFourMonths:
+                    noOfMonths = 24;
+                    break;
+
+                case NumberOfMonths.ThirtySixMonths:
+                    noOfMonths = 36;
+                    break;
+
+            }
+
+            return noOfMonths;
         }
 
         protected override void Dispose(bool disposing)

@@ -1,4 +1,5 @@
-﻿@model CarpAssociationWebsite.ViewModels.ActiveLoansAndEconomyAccountsViewModel
+﻿@using CarpAssociationWebsite.Controllers
+@model CarpAssociationWebsite.ViewModels.ActiveLoansAndEconomyAccountsViewModel
 
 @{
     ViewBag.Title = "ActiveLoansAndEconomyAccountsIndex";
@@ -165,12 +166,21 @@
                         @Html.DisplayFor(modelItem => item.InterestRate)
                     </td>
                     <td class="text-center">
+
                         <!-- Details -->
                         <a href="@Url.Action("Details", "EconomyAccount", new {id = item.EconomyAccountId})">Details</a> |
 
-                        <!-- Here make an if with a green button is withdrawing is possible -->
-                        <a href="@Url.Action("Withdraw", "EconomyAccount", new {id = item.EconomyAccountId})">Pay rates</a>
+
+                        <!-- Here make an if with an active button is withdrawing is possible -->
                         <!-- Or a grey inactive button is the economy account duration has not been met-->
+                        @if (item.DateStarted.AddMonths(EconomyAccountController.ConvertEnumMonthsToInteger(item.Duration)) <= @DateTime.Today)
+                        {
+                            <a class="btn btn-success" href="@Url.Action("Delete", "EconomyAccount", new {id = item.EconomyAccountId})">Withdraw</a>
+                        }
+                        else
+                        {
+                            <a class="btn btn-outline-secondary" style="pointer-events: none">Cannot withdraw yet</a>
+                        }
                     </td>
                 </tr>
             }
